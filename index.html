@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 Love Languages Quiz</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ffe6e6;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f8ff;
             color: #333;
             text-align: center;
             margin: 0;
@@ -15,53 +16,62 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         h1 {
-            color: #ff4d4d;
+            color: #ff4500;
+            margin-bottom: 10px;
         }
 
         .description {
             font-size: 16px;
             margin-bottom: 20px;
+            line-height: 1.5;
         }
 
-        .image-placeholder img {
+        /* Progress Bar Styles */
+        .progress-container {
             width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 10px;
+            background-color: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
         }
 
-        .quiz-section {
-            margin: 20px 0;
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #4caf50;
+            transition: width 0.4s ease;
+        }
+
+        /* Question Styles */
+        .question-page {
+            display: none;
         }
 
         .question {
-            margin: 15px 0;
-            font-size: 18px;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .question label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .question input[type="radio"] {
-            margin: 10px;
+            margin-right: 10px;
         }
 
-        .result {
-            display: none;
-            background-color: #ffcccc;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
-
-        .result h2 {
-            color: #e60000;
-        }
-
+        /* Button Styles */
         .btn {
             background-color: #ff6666;
             color: white;
@@ -70,6 +80,7 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
+            margin-top: 10px;
         }
 
         .btn:hover {
@@ -78,17 +89,57 @@
 
         .reset-btn {
             background-color: #ff9999;
+            margin-top: 20px;
         }
 
         .reset-btn:hover {
             background-color: #ff6666;
+        }
+
+        /* Result Styles */
+        .result {
+            display: none;
+            background-color: #ffcccc;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .result h2 {
+            color: #e60000;
+            text-align: center;
+        }
+
+        .result h3 {
+            color: #cc0000;
+            margin-top: 20px;
+        }
+
+        .result p {
+            margin: 10px 0;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>5 Love Languages Profile</h1>
+        <h1>5 Love Languages Quiz</h1>
 
         <div class="description">
             Words of affirmation, quality time, gifts, acts of service, physical touch—which of these is your primary love language? You may already have an idea, or you may have no clue. The 5 Love Languages Profile will help you know for sure.
@@ -96,258 +147,455 @@
             Take the profile when you are relaxed and not pressed for time. Think about your relationships with a significant person—friend, partner, or family member—while you answer.
         </div>
 
-        <!-- Image placeholder -->
+        <!-- Image Placeholder -->
         <div class="image-placeholder">
             <img src="https://images.unsplash.com/photo-1504122398460-c635d6377010?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Love Languages">
         </div>
 
-        <div class="quiz-section">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Quiz Questions -->
+        <!-- Question 1 -->
+        <div class="question-page" id="question1">
             <div class="question">
-                <label><b>Question 1</b></label><br>
+                <label><b>Question 1</b></label>
                 <input type="radio" name="q1" value="Words of Affirmation"> I feel appreciated when I receive thoughtful notes or messages of encouragement.<br>
                 <input type="radio" name="q1" value="Physical Touch"> I feel comforted when I’m hugged by someone close to me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(2)">Next</button>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-page" id="question2">
             <div class="question">
-                <label><b>Question 2</b></label><br>
+                <label><b>Question 2</b></label>
                 <input type="radio" name="q2" value="Quality Time"> I feel loved when I can spend quality one-on-one time with someone special to me.<br>
                 <input type="radio" name="q2" value="Acts of Service"> I feel valued when someone helps me with tasks that make my life easier.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(3)">Next</button>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-page" id="question3">
             <div class="question">
-                <label><b>Question 3</b></label><br>
+                <label><b>Question 3</b></label>
                 <input type="radio" name="q3" value="Receiving Gifts"> I feel happy when people give me meaningful gifts.<br>
                 <input type="radio" name="q3" value="Quality Time"> I enjoy spending relaxed, unhurried time with friends and loved ones.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(4)">Next</button>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-page" id="question4">
             <div class="question">
-                <label><b>Question 4</b></label><br>
+                <label><b>Question 4</b></label>
                 <input type="radio" name="q4" value="Acts of Service"> I feel loved when people take the time to help me with something I need.<br>
                 <input type="radio" name="q4" value="Physical Touch"> I feel a deep connection when someone I care about gives me a warm hug or touch.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(5)">Next</button>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-page" id="question5">
             <div class="question">
-                <label><b>Question 5</b></label><br>
+                <label><b>Question 5</b></label>
                 <input type="radio" name="q5" value="Physical Touch"> I feel cared for when someone I admire puts their arm around me.<br>
                 <input type="radio" name="q5" value="Receiving Gifts"> Receiving a thoughtful gift from someone I love makes me feel appreciated.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(6)">Next</button>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question-page" id="question6">
             <div class="question">
-                <label><b>Question 6</b></label><br>
+                <label><b>Question 6</b></label>
                 <input type="radio" name="q6" value="Quality Time"> I enjoy going out and doing activities with close friends or loved ones.<br>
                 <input type="radio" name="q6" value="Physical Touch"> I feel a sense of connection when I can hold hands or share a high-five with someone I care about.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(7)">Next</button>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question-page" id="question7">
             <div class="question">
-                <label><b>Question 7</b></label><br>
+                <label><b>Question 7</b></label>
                 <input type="radio" name="q7" value="Receiving Gifts"> Visible symbols of love, like gifts, are very meaningful to me.<br>
                 <input type="radio" name="q7" value="Words of Affirmation"> I feel loved when someone speaks kind, affirming words to me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(8)">Next</button>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question-page" id="question8">
             <div class="question">
-                <label><b>Question 8</b></label><br>
+                <label><b>Question 8</b></label>
                 <input type="radio" name="q8" value="Physical Touch"> I feel closer to people when I can sit next to them or be physically close.<br>
                 <input type="radio" name="q8" value="Words of Affirmation"> I appreciate it when people compliment my appearance or tell me I look good.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(9)">Next</button>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question-page" id="question9">
             <div class="question">
-                <label><b>Question 9</b></label><br>
+                <label><b>Question 9</b></label>
                 <input type="radio" name="q9" value="Quality Time"> Spending time with friends and loved ones makes me feel connected.<br>
                 <input type="radio" name="q9" value="Receiving Gifts"> I feel loved when I receive small, thoughtful gifts from people I care about.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(10)">Next</button>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question-page" id="question10">
             <div class="question">
-                <label><b>Question 10</b></label><br>
+                <label><b>Question 10</b></label>
                 <input type="radio" name="q10" value="Words of Affirmation"> Hearing words of acceptance and praise makes me feel valued.<br>
                 <input type="radio" name="q10" value="Acts of Service"> I know someone cares about me when they help me with something important to me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(11)">Next</button>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="question-page" id="question11">
             <div class="question">
-                <label><b>Question 11</b></label><br>
+                <label><b>Question 11</b></label>
                 <input type="radio" name="q11" value="Quality Time"> I enjoy doing activities and spending time with the people I love.<br>
                 <input type="radio" name="q11" value="Words of Affirmation"> I feel special when someone takes the time to speak kind words to me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(12)">Next</button>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="question-page" id="question12">
             <div class="question">
-                <label><b>Question 12</b></label><br>
+                <label><b>Question 12</b></label>
                 <input type="radio" name="q12" value="Acts of Service"> I value actions more than words; when someone helps me, I feel appreciated.<br>
                 <input type="radio" name="q12" value="Physical Touch"> Hugs or affectionate touches make me feel connected and valued by others.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(13)">Next</button>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="question-page" id="question13">
             <div class="question">
-                <label><b>Question 13</b></label><br>
+                <label><b>Question 13</b></label>
                 <input type="radio" name="q13" value="Words of Affirmation"> I feel proud when I receive praise and avoid criticism.<br>
                 <input type="radio" name="q13" value="Receiving Gifts"> Receiving several small gifts over time means more to me than receiving one large gift.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(14)">Next</button>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="question-page" id="question14">
             <div class="question">
-                <label><b>Question 14</b></label><br>
+                <label><b>Question 14</b></label>
                 <input type="radio" name="q14" value="Quality Time"> I feel close to someone when we talk or do something enjoyable together.<br>
                 <input type="radio" name="q14" value="Physical Touch"> I feel a stronger bond with people when we share physical touch frequently, like hugs.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(15)">Next</button>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="question-page" id="question15">
             <div class="question">
-                <label><b>Question 15</b></label><br>
+                <label><b>Question 15</b></label>
                 <input type="radio" name="q15" value="Words of Affirmation"> I appreciate it when people compliment my accomplishments.<br>
                 <input type="radio" name="q15" value="Acts of Service"> I feel loved when someone does something for me, even if it’s something they don’t particularly enjoy.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(16)">Next</button>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="question-page" id="question16">
             <div class="question">
-                <label><b>Question 16</b></label><br>
+                <label><b>Question 16</b></label>
                 <input type="radio" name="q16" value="Physical Touch"> I feel comforted when loved ones touch me in passing, like a quick pat on the back or shoulder.<br>
                 <input type="radio" name="q16" value="Quality Time"> I feel valued when someone listens to me attentively and shows real interest in what I’m saying.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(17)">Next</button>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="question-page" id="question17">
             <div class="question">
-                <label><b>Question 17</b></label><br>
+                <label><b>Question 17</b></label>
                 <input type="radio" name="q17" value="Receiving Gifts"> I enjoy receiving tangible gifts from the people I love.<br>
                 <input type="radio" name="q17" value="Words of Affirmation"> I feel validated when someone expresses their feelings towards me in words.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(18)">Next</button>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="question-page" id="question18">
             <div class="question">
-                <label><b>Question 18</b></label><br>
+                <label><b>Question 18</b></label>
                 <input type="radio" name="q18" value="Physical Touch"> I feel connected when someone holds me or is physically close.<br>
                 <input type="radio" name="q18" value="Acts of Service"> I appreciate it when someone helps me with chores or errands, even if I didn’t ask for help.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(19)">Next</button>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="question-page" id="question19">
             <div class="question">
-                <label><b>Question 19</b></label><br>
+                <label><b>Question 19</b></label>
                 <input type="radio" name="q19" value="Quality Time"> I feel special when someone takes time out of their busy day to spend time with me.<br>
                 <input type="radio" name="q19" value="Receiving Gifts"> I appreciate when someone surprises me with a thoughtful gift.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(20)">Next</button>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="question-page" id="question20">
             <div class="question">
-                <label><b>Question 20</b></label><br>
+                <label><b>Question 20</b></label>
                 <input type="radio" name="q20" value="Acts of Service"> I feel cared for when someone does something for me that relieves stress.<br>
                 <input type="radio" name="q20" value="Words of Affirmation"> I feel uplifted when someone tells me how much they appreciate me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(21)">Next</button>
+        </div>
+
+        <!-- Question 21 -->
+        <div class="question-page" id="question21">
             <div class="question">
-                <label><b>Question 21</b></label><br>
+                <label><b>Question 21</b></label>
                 <input type="radio" name="q21" value="Receiving Gifts"> I love when someone gives me something thoughtful for no particular reason.<br>
                 <input type="radio" name="q21" value="Quality Time"> I enjoy spending meaningful time with people even if we are not doing anything special.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(22)">Next</button>
+        </div>
+
+        <!-- Question 22 -->
+        <div class="question-page" id="question22">
             <div class="question">
-                <label><b>Question 22</b></label><br>
+                <label><b>Question 22</b></label>
                 <input type="radio" name="q22" value="Words of Affirmation"> I feel encouraged when I hear sincere praise from others.<br>
                 <input type="radio" name="q22" value="Physical Touch"> I feel loved when someone holds my hand or gives me a warm hug.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(23)">Next</button>
+        </div>
+
+        <!-- Question 23 -->
+        <div class="question-page" id="question23">
             <div class="question">
-                <label><b>Question 23</b></label><br>
+                <label><b>Question 23</b></label>
                 <input type="radio" name="q23" value="Physical Touch"> Physical touch is a way I feel connected to people.<br>
                 <input type="radio" name="q23" value="Quality Time"> I feel more loved when someone spends quality time with me than when I receive a gift.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(24)">Next</button>
+        </div>
+
+        <!-- Question 24 -->
+        <div class="question-page" id="question24">
             <div class="question">
-                <label><b>Question 24</b></label><br>
+                <label><b>Question 24</b></label>
                 <input type="radio" name="q24" value="Acts of Service"> I feel loved when someone does a favor for me to lighten my load.<br>
                 <input type="radio" name="q24" value="Words of Affirmation"> I feel validated when someone takes time to express what they love about me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(25)">Next</button>
+        </div>
+
+        <!-- Question 25 -->
+        <div class="question-page" id="question25">
             <div class="question">
-                <label><b>Question 25</b></label><br>
+                <label><b>Question 25</b></label>
                 <input type="radio" name="q25" value="Quality Time"> I feel cared for when someone actively listens to me in a conversation.<br>
                 <input type="radio" name="q25" value="Receiving Gifts"> I love it when I receive surprise gifts from people who care about me.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(26)">Next</button>
+        </div>
+
+        <!-- Question 26 -->
+        <div class="question-page" id="question26">
             <div class="question">
-                <label><b>Question 26</b></label><br>
+                <label><b>Question 26</b></label>
                 <input type="radio" name="q26" value="Acts of Service"> Doing something thoughtful for me is a great way to show love.<br>
                 <input type="radio" name="q26" value="Physical Touch"> I feel loved when someone I care about gives me a long, comforting hug.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(27)">Next</button>
+        </div>
+
+        <!-- Question 27 -->
+        <div class="question-page" id="question27">
             <div class="question">
-                <label><b>Question 27</b></label><br>
+                <label><b>Question 27</b></label>
                 <input type="radio" name="q27" value="Words of Affirmation"> I feel special when someone compliments or appreciates me out loud.<br>
                 <input type="radio" name="q27" value="Acts of Service"> I feel loved when someone helps me out with something I’m stressed about.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(28)">Next</button>
+        </div>
+
+        <!-- Question 28 -->
+        <div class="question-page" id="question28">
             <div class="question">
-                <label><b>Question 28</b></label><br>
+                <label><b>Question 28</b></label>
                 <input type="radio" name="q28" value="Receiving Gifts"> I feel appreciated when I get a thoughtful gift, even if it’s small.<br>
                 <input type="radio" name="q28" value="Quality Time"> Spending time together doing something fun is my favorite way to connect with others.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(29)">Next</button>
+        </div>
+
+        <!-- Question 29 -->
+        <div class="question-page" id="question29">
             <div class="question">
-                <label><b>Question 29</b></label><br>
+                <label><b>Question 29</b></label>
                 <input type="radio" name="q29" value="Physical Touch"> I feel loved when someone holds me tight in a meaningful embrace.<br>
                 <input type="radio" name="q29" value="Receiving Gifts"> A surprise gift makes me feel loved and cherished.
             </div>
-            
+            <button class="btn" onclick="nextQuestion(30)">Next</button>
+        </div>
+
+        <!-- Question 30 -->
+        <div class="question-page" id="question30">
             <div class="question">
-                <label><b>Question 30</b></label><br>
+                <label><b>Question 30</b></label>
                 <input type="radio" name="q30" value="Acts of Service"> I feel supported when someone helps me with tasks that overwhelm me.<br>
                 <input type="radio" name="q30" value="Quality Time"> Quality time with the people I care about makes me feel connected and valued.
-            </div>            
-    </div>
-   <button class="btn" onclick="submitAnswers()">Submit Answers</button>
-        <div class="result" id="result"></div>
-        <button class="reset-btn" id="resetBtn" style="display: none;" onclick="resetQuiz()">Reset Quiz</button>
+            </div>
+        </div>
+
+        <!-- Submit Button (Hidden until last question) -->
+        <button class="btn" onclick="submitAnswers()" id="submitBtn" style="display:none;">Submit</button>
+
+        <!-- Result Section -->
+        <div class="result" id="result">
+            <h2>Your Primary Love Languages:</h2>
+            <div id="resultLanguages"></div>
+        </div>
+
+        <!-- Reset Button -->
+        <button class="btn reset-btn" id="resetBtn" style="display: none;" onclick="resetQuiz()">Reset Quiz</button>
     </div>
 
     <script>
+        let currentQuestion = 1;
+        const totalQuestions = 30;
+    
+        // Function to show the next question
+        function nextQuestion(questionNumber) {
+            // Hide current question
+            document.getElementById(`question${currentQuestion}`).style.display = 'none';
+            // Show next question
+            document.getElementById(`question${questionNumber}`).style.display = 'block';
+            currentQuestion = questionNumber;
+            updateProgressBar();
+    
+            // If it's the last question, show the Submit button
+            if (currentQuestion === totalQuestions) {
+                document.getElementById("submitBtn").style.display = 'block';
+            }
+        }
+    
+        // Progress Bar Update Function
+        function updateProgressBar() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+        }
+    
+        // Submit answers and show results
         function submitAnswers() {
-            const totalQuestions = 20; // Adjust this to match the number of questions
             const responses = {};
-            let selectedCount = 0;
-
             for (let i = 1; i <= totalQuestions; i++) {
                 const radios = document.getElementsByName(`q${i}`);
                 let answered = false;
-
                 for (let j = 0; j < radios.length; j++) {
                     if (radios[j].checked) {
                         responses[`q${i}`] = radios[j].value;
                         answered = true;
-                        selectedCount++;
+                        break;
                     }
                 }
-
                 if (!answered) {
-                    alert(`Please select an option for Question ${i}.`);
+                    alert(`Please answer Question ${i} before submitting.`);
                     return;
                 }
             }
-
+    
+            // Count the frequency of each love language
             const languageCount = {};
             Object.values(responses).forEach(language => {
                 languageCount[language] = (languageCount[language] || 0) + 1;
             });
-
+    
+            // Sort languages by count
             const sortedLanguages = Object.entries(languageCount).sort((a, b) => b[1] - a[1]);
             const primaryLanguages = sortedLanguages.slice(0, 2).map(lang => lang[0]);
-
+    
+            // Display the results
             const resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = `<h2>Your Primary Love Languages:</h2><p>${primaryLanguages.join(', ')}</p>`;
+            const resultLanguagesDiv = document.getElementById("resultLanguages");
+            resultLanguagesDiv.innerHTML = `<p>${primaryLanguages.join(', ')}</p>`;
+    
             primaryLanguages.forEach(language => {
-                resultDiv.innerHTML += `<h3>${language}</h3>`;
-                resultDiv.innerHTML += getLanguageDescription(language);
+                resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
+                resultLanguagesDiv.innerHTML += getLanguageDescription(language);
+                resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
             });
+    
             resultDiv.style.display = "block";
             document.getElementById("resetBtn").style.display = "block";
+    
+            // Hide all questions and progress bar
+            for (let i = 1; i <= totalQuestions; i++) {
+                document.getElementById(`question${i}`).style.display = 'none';
+            }
+            document.querySelector(".progress-container").style.display = 'none';
+            document.getElementById("submitBtn").style.display = 'none';
         }
-
+    
+        // Get description for each love language
         function getLanguageDescription(language) {
             const descriptions = {
-                "Words of Affirmation": "<p><b>Words of Affirmation:</b>This love language focuses on verbal expressions of love, appreciation, and encouragement. Hearing kind words, compliments, and genuine affirmations are the primary ways these individuals feel valued.</p>",
+                "Words of Affirmation": "<p><b>Words of Affirmation:</b> This love language focuses on verbal expressions of love, appreciation, and encouragement. Hearing kind words, compliments, and genuine affirmations are the primary ways these individuals feel valued.</p>",
                 "Quality Time": "<p><b>Quality Time:</b> This love language is all about giving someone your undivided attention. Engaging in activities together can strengthen your bond.</p>",
-                "Acts of Service": "<p><b>Acts of Service:</b> Doing helpful tasks for your partner shows your love.</p>",
-                "Receiving Gifts": "<p><b>Receiving Gifts:</b> This love language involves thoughtful gifts and gestures to show you care.</p>",
-                "Physical Touch": "<p><b>Physical Touch:</b> This love language emphasizes physical affection, like hugging and holding hands.</p>"
+                "Acts of Service": "<p><b>Acts of Service:</b> Doing helpful tasks for your partner shows your love. Actions speak louder than words for these individuals.</p>",
+                "Receiving Gifts": "<p><b>Receiving Gifts:</b> This love language involves thoughtful gifts and gestures to show you care. It's not about the monetary value but the thought behind the gift.</p>",
+                "Physical Touch": "<p><b>Physical Touch:</b> This love language emphasizes physical affection, like hugging and holding hands. Physical presence and accessibility are crucial.</p>"
             };
             return descriptions[language] || "";
         }
-
+    
+        // Get image for each love language
+        function getLanguageImage(language) {
+            const images = {
+                "Words of Affirmation": '<img src="https://example.com/words_of_affirmation.jpg" alt="Words of Affirmation" style="width:100%; height:auto; border-radius:10px;">',
+                "Quality Time": '<img src="https://example.com/quality_time.jpg" alt="Quality Time" style="width:100%; height:auto; border-radius:10px;">',
+                "Acts of Service": '<img src="https://example.com/acts_of_service.jpg" alt="Acts of Service" style="width:100%; height:auto; border-radius:10px;">',
+                "Receiving Gifts": '<img src="https://example.com/receiving_gifts.jpg" alt="Receiving Gifts" style="width:100%; height:auto; border-radius:10px;">',
+                "Physical Touch": '<img src="https://example.com/physical_touch.jpg" alt="Physical Touch" style="width:100%; height:auto; border-radius:10px;">'
+            };
+            return images[language] || "";
+        }
+    
+        // Reset the quiz
         function resetQuiz() {
+            // Hide result and reset button
             document.getElementById("result").style.display = "none";
             document.getElementById("resetBtn").style.display = "none";
-            const radios = document.querySelectorAll('input[type="radio"]');
-            radios.forEach(radio => {
-                radio.checked = false;
-            });
+    
+            // Reset progress bar
+            document.getElementById("progressBar").style.width = "0%";
+            document.querySelector(".progress-container").style.display = 'block';
+    
+            // Show first question
+            for (let i = 1; i <= totalQuestions; i++) {
+                document.getElementById(`question${i}`).style.display = 'none';
+                const radios = document.getElementsByName(`q${i}`);
+                radios.forEach(radio => radio.checked = false);
+            }
+            currentQuestion = 1;
+            document.getElementById(`question1`).style.display = 'block';
+        }
+    
+        // Initialize by showing the first question
+        window.onload = function() {
+            document.getElementById(`question1`).style.display = 'block';
+            updateProgressBar();
         }
     </script>
+    
 </body>
 </html>
