@@ -822,13 +822,19 @@
                 link.click();
             });
         }
-
         // Function to share the result via WhatsApp
-        function shareToWhatsapp() {
-            const resultText = document.getElementById('resultLanguages').innerText;
-            const whatsappUrl = `https://api.whatsapp.com/send?text=Check out my Love Language result: ${encodeURIComponent(resultText)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+function shareToWhatsapp() {
+    const resultText = document.getElementById('resultLanguages').innerText;
+    const quizLink = "Check your love language here: https://utsavkth.github.io/Discover-Your-Love-Language/";
+    const whatsappUrl = `https://api.whatsapp.com/send?text=Check out my Love Language result: ${encodeURIComponent(resultText)}%0A%0A${encodeURIComponent(quizLink)}`;
+    window.open(whatsappUrl, '_blank');
+}
+        // Function to share the result via WhatsApp
+        //function shareToWhatsapp() {
+            //const resultText = document.getElementById('resultLanguages').innerText;
+          //  const whatsappUrl = `https://api.whatsapp.com/send?text=Check out my Love Language result: ${encodeURIComponent(resultText)}`;
+        //    window.open(whatsappUrl, '_blank');
+      //  }
 
         // Get description for each love language
         function getLanguageDescription(language) {
