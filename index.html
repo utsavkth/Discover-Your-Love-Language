@@ -234,8 +234,8 @@
         </div>
 
 <!-- Quiz Questions -->
-    <!-- Question 1 -->
-    <div class="question-page" id="question1">
+    <!-- Question 1 - First question should be visible initially -->
+    <div class="question-page" id="question1" style="display: block;">
         <div class="question">
             <label><b>Question 1</b></label><br>
             <label>
@@ -248,6 +248,7 @@
         <button class="btn" style="visibility:hidden;">Back</button>
         <button class="btn" id="nextBtn1" onclick="nextQuestion(2)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
     </div>
+
 
     <!-- Question 2 -->
     <div class="question-page" id="question2">
@@ -687,7 +688,7 @@
 
         <!-- Result Section -->
         <div class="result" id="result">
-            <h2>Your Primary Love Languages:</h2>
+            <h2>Your Primary & Secondary Love Languages:</h2>
             <div id="resultLanguages"></div>
             <!-- Buttons for download and share -->
             <button class="btn" id="downloadBtn" style="display:none;" onclick="downloadResult()">Download Result</button>
@@ -742,15 +743,16 @@
                 updateProgressBar();
             }
         }
+    
         // Function to enable the "Next" button, change the color, and update the progress bar when an option is selected
         function optionSelected(questionNumber) {
-            console.log(`Option selected for question ${questionNumber}`);
             const nextButton = document.getElementById(`nextBtn${questionNumber}`);
             nextButton.disabled = false;  // Enable the button
             nextButton.style.backgroundColor = '#4A90E2';  // Change button color to active (e.g., blue)
             nextButton.style.color = 'white';  // Ensure text color is visible
             updateProgressBar();  // Update the progress bar
         }
+    
         // Progress Bar Update Function
         function updateProgressBar() {
             const progress = (currentQuestion / totalQuestions) * 100;
@@ -760,6 +762,8 @@
         // Submit answers and show results
         function submitAnswers() {
             const responses = {};
+            
+            // Collect responses from the quiz
             for (let i = 1; i <= totalQuestions; i++) {
                 const radios = document.getElementsByName(`q${i}`);
                 let answered = false;
@@ -782,14 +786,17 @@
                 languageCount[language] = (languageCount[language] || 0) + 1;
             });
     
-            // Sort languages by count
+            // Sort love languages by their count (frequency)
             const sortedLanguages = Object.entries(languageCount).sort((a, b) => b[1] - a[1]);
-            const primaryLanguages = sortedLanguages.slice(0, 2).map(lang => lang[0]);
     
-            // Display the results
+            // Select top 2 as primary love languages and next 2 as secondary love languages
+            const primaryLanguages = sortedLanguages.slice(0, 2).map(lang => lang[0]);
+            const secondaryLanguages = sortedLanguages.slice(2, 4).map(lang => lang[0]);
+    
+            // Display the results for primary love languages
             const resultDiv = document.getElementById("result");
             const resultLanguagesDiv = document.getElementById("resultLanguages");
-            resultLanguagesDiv.innerHTML = `<p><b style="color: #333333;">${primaryLanguages.join(', ')}</b></p>`;
+            resultLanguagesDiv.innerHTML = `<p><b style="color: #333333;">Your Primary Love Languages:</b></p>`;
     
             primaryLanguages.forEach(language => {
                 resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
@@ -797,14 +804,23 @@
                 resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
             });
     
+            // Display the results for secondary love languages
+            resultLanguagesDiv.innerHTML += `<p><b style="color: #333333;">Your Secondary Love Languages:</b></p>`;
+            secondaryLanguages.forEach(language => {
+                resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
+                resultLanguagesDiv.innerHTML += getLanguageDescription(language);
+                resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
+            });
+    
+            // Show the result section and reset button
             resultDiv.style.display = "block";
             document.getElementById("resetBtn").style.display = "block";
             document.getElementById("downloadBtn").style.display = "block";  // Show download button
             document.getElementById("whatsappBtn").style.display = "block";  // Show WhatsApp button
     
-           // Show the feedback section after results
+            // Show the feedback section after results
             document.querySelector(".feedback-container").style.display = "block";
-
+    
             // Hide all questions and progress bar
             for (let i = 1; i <= totalQuestions; i++) {
                 document.getElementById(`question${i}`).style.display = 'none';
@@ -827,7 +843,7 @@
         // Function to share the result via WhatsApp
         function shareToWhatsapp() {
             const resultText = document.getElementById('resultLanguages').innerText;
-            const quizLink = "Check your love language here: https://utsavkth.github.io/Discover-Your-Love-Language/";
+            const quizLink = "Check your love language here: https://utsavkth.github.io/love-languages-quiz/";
             const whatsappUrl = `https://api.whatsapp.com/send?text=Check out my Love Language result: ${encodeURIComponent(resultText)}%0A%0A${encodeURIComponent(quizLink)}`;
             window.open(whatsappUrl, '_blank');
         }
@@ -889,23 +905,22 @@
             document.getElementById("progressBar").style.width = "0%";
             document.querySelector(".progress-container").style.display = 'block';
     
-            // Show first question
+            // Reset and hide all questions
             for (let i = 1; i <= totalQuestions; i++) {
                 document.getElementById(`question${i}`).style.display = 'none';
                 const radios = document.getElementsByName(`q${i}`);
                 radios.forEach(radio => radio.checked = false);
             }
-            currentQuestion = 1;
+            currentQuestion = 1;  // Reset to the first question
             document.getElementById(`question1`).style.display = 'block';
         }
     
         // Initialize by showing the first question
         window.onload = function() {
             document.getElementById(`question1`).style.display = 'block';
-            updateProgressBar();
+            updateProgressBar();  // Update progress bar to reflect current progress
         }
     </script>
-    
     <!-- Footer Section -->
     <footer style="background-color: #3209ec; color: white; padding: 10px 0; text-align: center; position: relative; width: 100%;">
         <p>Project inspired by the book <i>The 5 Love Languages</i> by Gary Chapman.<br>
