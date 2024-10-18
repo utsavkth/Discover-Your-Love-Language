@@ -138,33 +138,40 @@ function shareToWhatsapp() {
 function getLanguageDescription(language) {
     const descriptions = {
         "Words of Affirmation": `
-            <p><b>What It Means:</b> Your love language is Words of Affirmation, which means you feel most appreciated when someone takes the time to say something thoughtful or kind to you.</p>
-            <p><b>What You Value Most:</b> You value receiving sincere compliments, words of encouragement, and verbal acknowledgments.</p>
-            <p><b>How You Can Enhance Your Relationships:</b> Express your own feelings verbally to those you care about.</p>
+            <p><b>What It Means:</b> Your love language is Words of Affirmation, meaning that verbal expressions of love, support, and appreciation deeply resonate with you. When someone takes the time to say kind or encouraging words, it makes you feel valued and loved. These words reassure you of your importance in their life and help strengthen your connection.</p>
+            <p><b>What You Value Most:</b> You place immense value on compliments, thoughtful encouragement, and verbal appreciation. Whether it’s acknowledging your achievements, expressing gratitude, or giving you a heartfelt compliment, words make you feel special. Even small, daily affirmations or a simple “I love you” hold significant meaning for you.</p>
+            <p><b>How You Can Enhance Your Relationships:</b> To deepen your connections, it’s important to express your feelings to others. Let your loved ones know how much you appreciate them through spoken or written words. Be open about what makes you feel valued, and encourage others to communicate with you in this way. In return, be mindful of offering meaningful affirmations to those around you—it will show them that you recognize and care about their efforts.</p>
+            <p><b>Ways to Express:</b> You can enhance your relationships by regularly sharing compliments, encouragement, and positive affirmations. For example, write a heartfelt note to your partner, or leave a kind message for a friend. Share what you admire about someone, or express your gratitude when they do something special. Acknowledging even the little things can go a long way in showing your appreciation.</p>
         `,
         "Quality Time": `
-            <p><b>What It Means:</b> Your primary love language is Quality Time, which means nothing is more meaningful to you than having someone’s full attention.</p>
-            <p><b>What You Value Most:</b> You value quality over quantity.</p>
-            <p><b>How You Can Enhance Your Relationships:</b> Plan intentional time with your loved ones.</p>
+            <p><b>What It Means:</b> Your love language is Quality Time, which means that you feel most loved and connected when someone invests their time and attention in being fully present with you. It’s not just about spending time together, but truly engaging in meaningful interactions without distractions. This helps you build deeper emotional bonds with those you care about.</p>
+            <p><b>What You Value Most:</b> You value undivided attention, deep conversations, and shared experiences. You’re not just interested in spending a lot of time with someone—you want quality moments where you can connect, share thoughts, and be present with each other. Even a few minutes of focused attention can mean more to you than hours spent together without engagement.</p>
+            <p><b>How You Can Enhance Your Relationships:</b> To enhance your relationships, make a conscious effort to carve out quality time with those you care about. Prioritize being fully present by setting aside distractions like phones or TV and engage in meaningful conversations or activities. Let others know that it’s important to you to have time where you can truly connect. Sharing experiences such as going for a walk, cooking a meal together, or having a heartfelt conversation will strengthen your emotional bonds.</p>
+            <p><b>Ways to Express:</b> Show your love by making time for one-on-one moments with your loved ones. Plan activities where you can fully engage with each other—whether it’s a special date night, a weekend trip, or even a simple coffee break. It’s not about how much time you spend, but about creating moments where you can bond and enjoy each other’s company without distractions.</p>
         `,
         "Acts of Service": `
-            <p><b>What It Means:</b> Your love language is Acts of Service, meaning actions speak louder than words for you.</p>
-            <p><b>What You Value Most:</b> You value helpful actions that make your life easier.</p>
-            <p><b>How You Can Enhance Your Relationships:</b> You can build stronger connections by offering thoughtful help to your loved ones in return.</p>
+            <p><b>What It Means:</b> Your love language is Acts of Service, meaning that actions speak louder than words for you. You feel most appreciated when someone goes out of their way to help you or make your life easier. It’s the small acts of kindness—whether it’s taking care of a task, running an errand, or offering help when you’re overwhelmed—that make you feel truly loved.</p>
+            <p><b>What You Value Most:</b> You value thoughtful gestures that demonstrate someone’s willingness to support and care for you. When others take the initiative to do something that eases your burden, it shows you that they’re paying attention to your needs and are invested in your well-being. It’s not necessarily about grand gestures, but consistent, meaningful actions that make your life smoother.</p>
+            <p><b>How You Can Enhance Your Relationships:</b> To build stronger connections, look for ways to be helpful to others, especially when they’re feeling overwhelmed. Whether it’s preparing a meal, handling a chore, or offering to assist in some way, these acts of service will show that you’re willing to go the extra mile. Let others know how much their help means to you as well, and be specific about the actions that make you feel supported.</p>
+            <p><b>Ways to Express:</b> You can express your love through helpful gestures—big or small. Offer to do something for your partner or friend that lightens their load, like cooking dinner, picking up groceries, or helping them with a project. Being proactive in noticing what needs to be done and stepping in to help without being asked will show how much you care.</p>
         `,
         "Receiving Gifts": `
-            <p><b>What It Means:</b> Your love language is Receiving Gifts. For you, a thoughtful gift is a symbol of love and appreciation.</p>
-            <p><b>What You Value Most:</b> You value small, meaningful tokens of love.</p>
-            <p><b>How You Can Enhance Your Relationships:</b> Share with others how much small, thoughtful gestures mean to you.</p>
+            <p><b>What It Means:</b> Your love language is Receiving Gifts, which means that tangible symbols of love and affection are important to you. It’s not about the material value of the gift but the thoughtfulness behind it. You feel most loved when someone gives you a gift that shows they were thinking of you, whether it’s for a special occasion or just because.</p>
+            <p><b>What You Value Most:</b> You value the meaning behind a gift more than its price. Thoughtful, well-chosen gifts—especially those that reflect your interests or remind you of shared memories—make you feel cherished. For you, receiving a gift is a physical representation of someone’s love, care, and consideration.</p>
+            <p><b>How You Can Enhance Your Relationships:</b> To strengthen your relationships, communicate to others that it’s not the gift itself, but the thought behind it that matters to you. Share how much you appreciate small, thoughtful gestures, and encourage your loved ones to express their affection through meaningful tokens. In return, look for ways to show your care by giving thoughtful gifts, whether it’s for a special occasion or a simple surprise.</p>
+            <p><b>Ways to Express:</b> Express your love by choosing gifts that have meaning and show you were thinking of the person. It could be something that represents a shared experience, a thoughtful item related to their interests, or even a homemade token. Don’t wait for special occasions—surprising someone with a small, meaningful gift is a powerful way to show love.</p>
         `,
         "Physical Touch": `
-            <p><b>What It Means:</b> Your primary love language is Physical Touch, which means you feel most connected to others through physical closeness.</p>
-            <p><b>What You Value Most:</b> You value the warmth and comfort that comes from affectionate touch.</p>
-            <p><b>How You Can Enhance Your Relationships:</b> You can enhance your relationships by expressing your need for physical closeness.</p>
+            <p><b>What It Means:</b> Your love language is Physical Touch, which means that physical closeness and affectionate touch make you feel most loved. Whether it’s a hug, holding hands, or simply a comforting touch, you feel connected to others through physical expressions of affection.</p>
+            <p><b>What You Value Most:</b> You deeply value the warmth and connection that comes from physical affection. Even small gestures, like a pat on the back or a touch on the arm, can provide comfort and reassurance. You feel most emotionally secure when you can physically express your love and receive that same closeness in return.</p>
+            <p><b>How You Can Enhance Your Relationships:</b> To strengthen your relationships, communicate your need for physical affection to those around you. Let them know that physical closeness helps you feel connected, and don’t hesitate to show affection through hugs, holding hands, or other comforting gestures. Being open about your need for physical touch will create deeper bonds and emotional intimacy.</p>
+            <p><b>Ways to Express:</b> You can express love through touch in simple but meaningful ways. Offer a warm hug when you greet someone, hold hands during a conversation, or provide a gentle touch to show support. Physical affection doesn’t always have to be romantic—it’s about creating a sense of connection and security through touch.</p>
         `
     };
-    return descriptions[language] || "";
+    
+    return descriptions[language] || '';
 }
+
 
 // Get image for each love language
 function getLanguageImage(language) {
