@@ -162,10 +162,9 @@ footer p {
     font-size: 16px;
 }
 
-/* Progress Bar */
 .progress-container {
     width: 100%;
-    background-color: #e0e0e0;
+    background-color: #e0e0e0; /* Light gray background */
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 30px;
@@ -174,7 +173,7 @@ footer p {
 .progress-bar {
     width: 0%;
     height: 20px;
-    background-color: #5a9bd4; /* Softer blue for progress bar */
+    background-color: #5EB3A5; /* Cool teal */
     transition: width 0.4s ease;
 }
 
