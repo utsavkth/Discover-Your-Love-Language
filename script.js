@@ -39,9 +39,9 @@ function optionSelected(questionNumber) {
     updateProgressBar();  // Update the progress bar
 }
 
-// Progress Bar Update Function
 function updateProgressBar() {
     const progress = (currentQuestion / totalQuestions) * 100;
+    console.log("Current progress:", progress); // Debugging
     document.getElementById("progressBar").style.width = progress + "%";
 }
 
