@@ -279,3 +279,19 @@ footer p {
     color: #666666; /* Light gray for the subtitle */
     margin-bottom: 30px; /* Space below the subtitle */
 }
+
+.quiz-button {
+    display: inline-block; /* Make it an inline block element */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Increase font size */
+    color: white; /* Button text color */
+    background-color: #007BFF; /* Button background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center text */
+}
+
+.quiz-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
