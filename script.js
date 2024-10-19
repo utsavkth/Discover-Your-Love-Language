@@ -41,7 +41,7 @@ function optionSelected(questionNumber) {
 
 function updateProgressBar() {
     const progress = (currentQuestion / totalQuestions) * 100;
-    console.log("Current progress:", progress); // Debugging
+    console.log("Updating progress:", currentQuestion, totalQuestions);
     document.getElementById("progressBar").style.width = progress + "%";
 }
 
@@ -65,6 +65,9 @@ function submitAnswers() {
             return;
         }
     }
+
+    // Hide FAQ section after all responses are collected
+    document.getElementById("faqSection").style.display = "none";
 
     // Count the frequency of each love language
     const languageCount = {};
@@ -220,6 +223,9 @@ function startQuiz() {
     document.querySelector('.reminder').style.display = 'none';
     document.getElementById('quizQuestions').style.display = 'block';
     document.getElementById('startQuizBtn').style.display = 'none';
-    // Show the first question
+
+    // Show the progress bar and the first question
+    document.querySelector('.progress-container').style.display = 'block';
     document.getElementById('question1').style.display = 'block';
+    updateProgressBar();  // Initialize progress bar
 }

@@ -41,7 +41,8 @@
         </section>
 
         <!-- Frequently Asked Questions -->
-        <h3>Frequently Asked Questions</h3>
+        <div id="faqSection">
+            <h3>Frequently Asked Questions</h3>
         <ul>
             <li><b>How do I choose between the two options for each question?</b> 
                 Select the option that resonates most with you in the context of your current relationships.</li>
@@ -54,14 +55,18 @@
             <li><b>Will my responses be kept confidential?</b> 
                 Yes, your answers are not saved or shared with anyone unless you choose to share your results. This quiz is for your personal insight.</li>
         </ul>
+        </div>
+        
 
         <!-- Start Quiz Button -->
         <button class="btn" id="startQuizBtn" onclick="startQuiz()">Start Quiz</button>
 
         <!-- Progress Bar -->
-        <div class="progress-container">
-    <div id="ProgressBar" style="width: 0%;"></div>
-</div>
+        <div class="progress-container" style="display: none;">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        
+        
         <!-- Quiz Questions -->
 
        <!-- Quiz Questions Section (Initially hidden) -->

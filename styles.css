@@ -162,20 +162,43 @@ footer p {
     font-size: 16px;
 }
 
+/* Progress bar container styles */
 .progress-container {
-    width: 100%;
-    background-color: #e0e0e0; /* Light gray background */
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 30px;
+    width: 100%; /* Makes the progress container take up the full width of its parent */
+    background-color: #f5f5f5; /* A softer background color for the container */
+    border-radius: 20px; /* Rounded corners for a smoother look */
+    overflow: hidden; /* Ensures any overflow content is clipped */
+    margin-bottom: 10px; /* Adds space below the progress bar */
 }
 
+/* Progress bar styles */
 .progress-bar {
-    width: 0%;
-    height: 20px;
-    background-color: #5EB3A5; /* Cool teal */
-    transition: width 0.4s ease;
+    width: 0%; /* Initially set to 0% width, it will grow as progress is made */
+    height: 20px; /* Height of the progress bar */
+    background-color: #f78da7; /* Pinkish background to fit the love theme */
+    border-radius: 20px; /* Rounded corners for the progress bar itself */
+    transition: width 0.4s ease; /* Smooth transition effect as the width changes */
+    position: relative; /* Allows the heart icon to be positioned absolutely inside */
 }
+
+/* Add a pulsing heart at the end of the progress bar */
+.progress-bar::after {
+    content: "❤️"; /* Adds a heart symbol at the end of the bar */
+    position: absolute; /* Positioned relative to the progress bar */
+    top: -4px; /* Slightly above the progress bar to sit in a visible position */
+    right: 1px; /* Positioned near the right edge of the progress bar */
+    font-size: 15px; /* Size of the heart symbol */
+    animation: pulse 1s infinite ease-in-out; /* Makes the heart pulse continuously */
+}
+
+/* Keyframe animation for the pulsing heart effect */
+@keyframes pulse {
+    0% { transform: scale(1); } /* Normal size at the start */
+    50% { transform: scale(1.2); } /* Grows slightly in the middle of the animation */
+    100% { transform: scale(1); } /* Returns to normal size at the end */
+}
+
+
 
 /* Responsive Styles */
 @media (max-width: 600px) {
