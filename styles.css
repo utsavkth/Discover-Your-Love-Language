@@ -20,6 +20,7 @@ body {
 
 /* Headings */
 h1, h2 {
+    text-align: center;  /* Center the h1 element */
     color: #4A4A4A; /* Neutral dark gray for headings */
     margin-bottom: 20px; /* Increased margin for better spacing */
 }
