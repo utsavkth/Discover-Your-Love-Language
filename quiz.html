@@ -528,13 +528,17 @@
         
 
         <!-- Result Section -->
-        <div id="result" style="display: none;">
-            <h2>Your Results</h2>
-            <div id="resultLanguages"></div>
-            <button id="resetBtn" onclick="resetQuiz()" style="display: none;">Restart Quiz</button>
-            <button id="downloadBtn" onclick="downloadResult()" style="display: none;">Download Result</button>
-            <button id="whatsappBtn" onclick="shareToWhatsapp()" style="display: none;">Share on WhatsApp</button>
-        </div>
+<div id="result" style="display: none;">
+    <h2>Your Results</h2>
+    <div id="resultLanguages"></div>
+    
+    <!-- Modernized Result Buttons Section -->
+    <div class="result-buttons">
+        <button class="btn" id="resetBtn" onclick="resetQuiz()" style="display: none;">Restart Quiz</button>
+        <button class="btn" id="downloadBtn" onclick="downloadResult()" style="display: none;">Download Result</button>
+        <button class="btn" id="whatsappBtn" onclick="shareToWhatsapp()" style="display: none;">Share on WhatsApp</button>
+    </div>
+</div>
 
 <!-- Feedback Section -->
 <div class="feedback-container" id="feedback-section" style="display:none;">
