@@ -3,100 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Journey with Love Languages</title>
+    <title>Home - 5 Love Languages Quiz</title>
     <link rel="stylesheet" href="styles.css"> <!-- Common stylesheet -->
-    <style>
-        body {
-            margin: 0;
-            position: relative;
-        }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Place behind content */
-        }
-        .container {
-            position: relative; /* Make sure the content is on top */
-            z-index: 1;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.95); /* More opaque background for readability */
-            border-radius: 8px; /* Optional: rounded corners */
-            min-height: 100vh; /* Ensures the section takes up at least the full viewport height */
-        }
-    </style>
 </head>
 <body>
-
-    <canvas id="matrixCanvas"></canvas> <!-- Canvas for Matrix rain effect -->
-
 
     <!-- Navigation Bar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="quiz.html">Quiz</a>
         <a href="love-languages.html">5 Love Languages?</a>
+        <a href="love-language-for-him.html">Love Language for Him</a>
+        <a href="love-language-for-her.html">Love Language for Her</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="journey.html">My Journey</a> 
-    </nav>
+        <a href="journey.html">My Journey</a>
+    </nav>    
+    
 
     <section class="container">
-        <h1>My Journey with Love Languages</h1>
-
-        <h2>Inspiration Behind the Website</h2>
-        <p>My inspiration for creating this website stems from my personal struggles with relationships—whether with colleagues, friends, family, or even romantic partners (not that I’ve had many! 😅). It wasn't until I read <i>The 5 Love Languages</i> by Gary Chapman that I began to understand the dynamics of love and communication. This book transformed my perspective and helped me navigate my relationships in a more meaningful way.</p>
-        <p>Motivated by my own experience, I created this website to help others discover their love languages, just as I did. I believe that understanding your love language is essential for fostering healthy relationships. I encourage everyone to read Gary Chapman’s book; it's an invaluable resource for anyone looking to enhance their relationships.</p>
-        <p>If you're interested in reading the book, feel free to send me an email, and I can provide you with a digital copy.</p>
-
-        <h2>The Development Journey</h2>
-        <p>Many people often ask me if this website is part of a university project or what motivated me to create it. Before launching this website, I developed a <a href="https://forms.gle/3cByYXYCje2ptQzp6" target="_blank">Google Form</a> to calculate love language results manually. As I marked each love language for every question on my iPad, I thought, "What if I could create a program or web app to automate this process?" This idea sparked the creation of my website.</p>
-        <p>The journey involved multiple iterations and designs, each one refined through feedback from friends and colleagues. I am particularly grateful to <b>Alvina</b>, for whom I initially intended the entire website; her insights were invaluable in shaping the project. Special thanks also go to <b>Aaditya</b>, whose constructive feedback prompted numerous changes, particularly in the user interface and question presentation. I cannot count the number of prototypes stored on my PC!</p>
-        <p>This project started as a simple design using basic HTML and CSS. After creating the Google Form, I spent about 5-6 hours developing the initial version. With a full-time job and working double shifts due to circumstances, I dedicated around 10 days to get to the current version, enhancing it with JavaScript and CSS along the way. I’m glad that I was able to accomplish this despite those challenges. To streamline feedback collection, I added a form at the end of the quiz, allowing users to share their thoughts directly with me via email. The complete changelog is available on GitHub, although earlier designs are not uploaded there—I may do so in the future to encourage others to tackle similar challenges.</p>
-        
-
-        <h2>Emphasizing Privacy and Transparency</h2>
-        <p>Creating a website may seem daunting, with many people insisting that you need to buy a domain or set up a database. However, I proved that it can be done using GitHub and Formspree for feedback collection. I plan to continue updating this website and appreciate everyone's support and encouragement throughout this journey.</p>
-        <p>One significant realization during my work with the Google Form was the importance of user privacy. I felt uncomfortable receiving personal love language results, which further motivated me to develop this website. Now, users can see their love language results as they progress through the quiz, and I have included a privacy note on the quiz page to address concerns about data collection. Some individuals even declined to participate in the Google Form quiz due to privacy worries, so I wanted to create a more transparent and respectful experience.</p>
+        <h1>Welcome to the 5 Love Languages Quiz</h1>
+        <p>Discover your primary love language to improve how you connect with others. Whether you're focusing on a romantic relationship, a friendship, or a family bond, understanding your love language can unlock deeper communication and fulfillment.</p>
+    
+        <h2>Why Should You Take This Quiz?</h2>
+        <p>This quiz is more than just a fun activity—it’s a valuable tool for self-discovery. By understanding your love language, you’ll be able to communicate your emotional needs better and connect with others in ways that truly resonate.</p>
+    
+        <h2>What You’ll Learn</h2>
+        <p>Through this quiz, you’ll learn how you prefer to express love and how you best receive it. You’ll gain insights into your relationships and find new ways to bring more harmony and understanding into your interactions.</p>
+    
+        <div class="image-placeholder">
+            <img src="home page.png" alt="Love Connection">
+        </div>
+    
+        <p><b>Ready to find out your love language?</b></p>
+        <a href="quiz.html" class="quiz-button">Start the quiz now!</a>
 
     </section>
+    
 
     <footer>
         <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
     </footer>
-
-    <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1); // One drop for each column
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Fade effect
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0F0'; // Green text color
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0; // Reset drop position
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 33); // Draw every 33ms
-    </script>
 
 </body>
 </html>
