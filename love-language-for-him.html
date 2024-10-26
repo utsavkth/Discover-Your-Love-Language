@@ -368,12 +368,17 @@
 </div>
 <!-- Result Section -->
 <div id="result" style="display: none;">
-<h2>Your Results</h2>
-<div id="resultLanguages"></div>
-<button id="resetBtn" onclick="resetQuiz()" style="display: none;">Restart Quiz</button>
-<button id="downloadBtn" onclick="downloadResult()" style="display: none;">Download Result</button>
-<button id="whatsappBtn" onclick="shareToWhatsapp()" style="display: none;">Share on WhatsApp</button>
+    <h2>Your Results</h2>
+    <div id="resultLanguages"></div>
+    
+    <!-- Updated button container with modernized classes -->
+    <div class="result-buttons">
+        <button class="btn visible" id="resetBtn" onclick="resetQuiz()">Restart Quiz</button>
+        <button class="btn visible" id="downloadBtn" onclick="downloadResult()">Download Result</button>
+        <button class="btn visible" id="whatsappBtn" onclick="shareToWhatsapp()">Share on WhatsApp</button>
+    </div>
 </div>
+
 <!-- Feedback Section -->
 <div class="feedback-container" id="feedback-section" style="display:none;">
 <h3>I Value Your Feedback. Thank you for completing the quiz! I appreciate your feedback. Do you agree with the results? Your input is valuable! How can I improve my website? Any suggestions are welcome.</h3>

@@ -93,18 +93,45 @@ nav a:hover {
 }
 
 /* Buttons */
+/* Modernized Button Styles */
 .btn {
-    background-color: #5a9bd4; /* Softer blue for buttons */
+    background-color: #5a9bd4; /* Themed blue color */
     color: white;
-    padding: 12px 25px; /* Increased padding for a more spacious feel */
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    padding: 12px 20px;
     font-size: 16px;
-    margin-top: 15px; /* Increased margin for better spacing */
+    border: none;
+    border-radius: 8px; /* Softer, rounder corners */
+    cursor: pointer;
+    text-align: center;
+    margin: 10px auto; /* Centered with top and bottom spacing */
+    transition: background-color 0.3s, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for a modern look */
     display: inline-block;
+    width: 100%;
+    max-width: 200px; /* Keeps buttons compact and uniform */
 }
+
+/* Hover effect for buttons */
+.btn:hover {
+    background-color: #4a8dc4; /* Darker shade for hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Active effect for buttons */
+.btn:active {
+    background-color: #447ba4;
+    transform: translateY(0);
+}
+
+/* Reset Button Specific Styling */
+.reset-btn {
+    background-color: #bdc3c7; /* Neutral gray for reset */
+}
+
+.reset-btn:hover {
+    background-color: #aab8c2; /* Slightly lighter gray on hover */
+}
+
 
 .btn:hover {
     background-color: #4a8dc4; /* Darker blue for hover */
