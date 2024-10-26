@@ -1,0 +1,389 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Softer background color */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 700px; /* Slightly wider for better readability */
+    margin: 40px auto;
+    padding: 30px 40px; /* Increased padding for a more spacious feel */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for a cleaner look */
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;  /* Center the h1 element */
+    color: #4A4A4A; /* Neutral dark gray for headings */
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+h2 {
+    font-size: 26px; /* Slightly larger font size for better emphasis */
+    margin-top: 30px;
+}
+
+h3 {
+    color: #666666; /* Light gray for subheadings */
+    margin-top: 20px;
+}
+
+/* Instructions and Reminder Sections */
+.quiz-instructions, .reminder, .faq {
+    background-color: #e9ecef; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Spacing inside the cards */
+    margin-bottom: 20px; /* Space between sections */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.reminder h3 {
+    color: #dc3545; /* Red for emphasis on privacy */
+    font-weight: bold; /* Make the heading bold */
+}
+
+.reminder p {
+    font-weight: bold; /* Highlight privacy message */
+}
+
+/* Paragraphs */
+p {
+    font-size: 18px; /* Increased font size for better readability */
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    color: #4A4A4A;
+}
+
+/* Lists */
+ul {
+    margin-left: 25px; /* Increased left margin for lists */
+    margin-bottom: 20px;
+}
+
+ul li {
+    margin-bottom: 12px; /* Increased margin between list items */
+    color: #333333;
+}
+
+/* Navigation */
+nav {
+    background-color: #34495e; /* Darker, neutral color for nav */
+    padding: 20px; /* Increased padding for a more spacious look */
+    text-align: center;
+}
+
+nav a {
+    color: #ecf0f1; /* Light color for better contrast */
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px; /* Increased padding for better touch targets */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+nav a:hover {
+    background-color: #455a64; /* Subtle hover effect */
+}
+
+/* Buttons */
+.btn {
+    background-color: #5a9bd4; /* Softer blue for buttons */
+    color: white;
+    padding: 12px 25px; /* Increased padding for a more spacious feel */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin-top: 15px; /* Increased margin for better spacing */
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #4a8dc4; /* Darker blue for hover */
+}
+
+.reset-btn {
+    background-color: #bdc3c7; /* Neutral gray for reset */
+}
+
+.reset-btn:hover {
+    background-color: #c3c3c3; /* Lighter gray on hover */
+}
+
+/* Image Placeholder */
+.image-placeholder img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    background-color: #34495e;
+    color: white !important; /* Force white text */
+    padding: 20px 0; /* Increased padding for a more spacious footer */
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+footer p {
+    color: white !important; /* Ensure footer text is white */
+}
+
+/* Feedback Section */
+.feedback-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 25px; /* Increased padding for more space */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.feedback-container h3 {
+    color: #4A4A4A; /* Changed to a neutral dark gray */
+}
+
+.feedback-container textarea {
+    width: 100%;
+    padding: 15px; /* Consistent padding */
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Progress bar container styles */
+.progress-container {
+    width: 100%; /* Makes the progress container take up the full width of its parent */
+    background-color: #f5f5f5; /* A softer background color for the container */
+    border-radius: 20px; /* Rounded corners for a smoother look */
+    overflow: hidden; /* Ensures any overflow content is clipped */
+    margin-bottom: 10px; /* Adds space below the progress bar */
+}
+
+/* Progress bar styles */
+.progress-bar {
+    width: 0%; /* Initially set to 0% width, it will grow as progress is made */
+    height: 20px; /* Height of the progress bar */
+    background-color: #f78da7; /* Pinkish background to fit the love theme */
+    border-radius: 20px; /* Rounded corners for the progress bar itself */
+    transition: width 0.4s ease; /* Smooth transition effect as the width changes */
+    position: relative; /* Allows the heart icon to be positioned absolutely inside */
+}
+
+/* Add a pulsing heart at the end of the progress bar */
+.progress-bar::after {
+    content: "❤️"; /* Adds a heart symbol at the end of the bar */
+    position: absolute; /* Positioned relative to the progress bar */
+    top: -4px; /* Slightly above the progress bar to sit in a visible position */
+    right: 1px; /* Positioned near the right edge of the progress bar */
+    font-size: 15px; /* Size of the heart symbol */
+    animation: pulse 1s infinite ease-in-out; /* Makes the heart pulse continuously */
+}
+
+/* Keyframe animation for the pulsing heart effect */
+@keyframes pulse {
+    0% { transform: scale(1); } /* Normal size at the start */
+    50% { transform: scale(1.2); } /* Grows slightly in the middle of the animation */
+    100% { transform: scale(1); } /* Returns to normal size at the end */
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px; /* Adjusted for smaller screens */
+    }
+
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        width: 100%; /* Full-width buttons on small screens */
+    }
+}
+
+/* Contact Form Styles */
+.contact-form {
+    margin-top: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4A4A4A; /* Neutral dark gray for labels */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 15px; /* Consistent padding */
+    border: 1px solid #bdc3c7; /* Soft gray border */
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #5a9bd4; /* Highlight border when focused */
+    outline: none;
+}
+
+.contact-form button {
+    background-color: #5a9bd4; /* Softer blue for buttons */
+    color: white;
+    padding: 12px 25px; /* Consistent padding */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #4a8dc4; /* Darker blue on hover */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Responsive Form Adjustments */
+@media (max-width: 600px) {
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 10px; /* Slightly reduced padding on smaller screens */
+    }
+
+    .contact-form button {
+        width: 100%; /* Full-width button on small screens */
+    }
+}
+
+/* Quiz Title and Subtitle Styles */
+.quiz-title {
+    text-align: center; /* Center the title */
+    font-size: 36px; /* Largest font size for emphasis */
+    color: #4A4A4A; /* Neutral dark gray for the title */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.quiz-subtitle {
+    text-align: center; /* Center the subtitle */
+    font-size: 20px; /* Slightly smaller than the title */
+    color: #666666; /* Light gray for the subtitle */
+    margin-bottom: 30px; /* Space below the subtitle */
+}
+
+.quiz-button {
+    display: inline-block; /* Make it an inline block element */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Increase font size */
+    color: white; /* Button text color */
+    background-color: #007BFF; /* Button background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center text */
+}
+
+.quiz-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+
+/* Additional CSS for Quiz for Him and Her */
+/* Styling for quiz options */
+.quiz-option {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.quiz-option input[type="radio"] {
+    display: none; /* Hide the radio button itself */
+}
+
+.quiz-option span {
+    margin-left: 10px;
+}
+
+.quiz-option:hover, .quiz-option input[type="radio"]:checked + span {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.him-quiz-image {
+    max-width: 100%;
+    width: 100%; /* Adjust as needed */
+    max-width: 400px;
+    display: block;
+    margin: 0 auto 20px auto; /* Centers the image and adds bottom space */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* General button style for hidden buttons */
+#resetBtn, #downloadBtn, #whatsappBtn {
+    display: none;
+}
+
+/* Visible class to display buttons after quiz completion */
+.visible {
+    display: inline-block !important;
+}
+
+.quiz-banner {
+    width: 100%;
+    max-width: 600px; /* Adjust based on your preference */
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.question-page {
+    text-align: center; /* Center-aligns the question content */
+    max-width: 600px;
+    margin: 0 auto; /* Centers the container on the page */
+}
+.question label:first-of-type {
+    font-weight: bold; /* Makes the prompt text bold */
+    display: block;
+    margin-bottom: 10px;
+}
+.question input[type="radio"] {
+    margin-right: 8px; /* Adds some spacing between the radio and the text */
+}

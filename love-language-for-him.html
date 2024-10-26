@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quiz - 5 Love Languages Quiz</title>
+<link href="him-styles.css" rel="stylesheet"/> <!-- Common stylesheet -->
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="love-languages.html">5 Love Languages?</a>
+    <a href="love-language-for-him.html">Love Language for Him</a>
+    <a href="love-language-for-her.html">Love Language for Her</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="journey.html">My Journey</a>
+</nav>
+
+<section class="container">
+    <h1 class="quiz-title">The 5 Love Languages® Profile for Couples—for Him</h1>
+    <p class="quiz-subtitle">Complete the quiz to discover how you connect with your partner and feel most loved!</p>  
+    <img src="him-quiz-intro-image.png" alt="Couples connecting" class="quiz-banner" />  
+<!-- Quiz Instructions -->
+<section class="quiz-instructions">
+    <h2>Instructions</h2>
+    <p>As you take this quiz, think specifically about your relationship with your partner:</p>
+    <ul>
+        <li>Consider how you feel most loved and appreciated in your marriage or committed relationship.</li>
+        <li>Choose the option that resonates most with how you experience affection and connection from your partner.</li>
+        <li>If both options feel relevant, select the one that has a more significant impact on your relationship.</li>
+        <li>This quiz is meant to help you better understand your love language within a committed partnership.</li>
+    </ul>
+    <p>Enjoy discovering your love language!</p>
+</section>
+
+<!-- Reminder About Results -->
+<section class="reminder">
+<h3>Your Privacy Matters</h3>
+<p>Your quiz results are not shared with anyone unless you choose to do so. The website doesn't save any responses; it is simply to help you understand your love language and relationships.</p>
+<p>At the end of the quiz, you will be able to download your results or share them with your loved ones to enhance your relationship.</p>
+</section>
+<!-- Frequently Asked Questions -->
+<div id="faqSection">
+    <h3>Frequently Asked Questions</h3>
+    <ul>
+    <li><b>How do I choose between the two options for each question?</b> 
+                    Select the option that resonates most with you in the context of your current relationships.</li>
+    <li><b>What if both options feel relevant to me?</b> 
+                    It’s common to relate to multiple love languages. Choose the one that feels more significant or impactful for you right now.</li>
+    <li><b>Why do some of the options seem to repeat?</b> 
+                    I intentionally designed the quiz to repeat similar options in different contexts. This helps to ensure more accurate and consistent results, allowing you to discover your primary love language more effectively.</li>
+    <li><b>How long will the quiz take?</b> 
+                    The quiz typically takes about 5-10 minutes, but take your time to reflect on each question.</li>
+    <li><b>Will my responses be kept confidential?</b> 
+                    Yes, your answers are not saved or shared with anyone unless you choose to share your results. This quiz is for your personal insight.</li>
+</ul>
+</div>
+<!-- Start Quiz Button -->
+<button class="btn" id="startQuizBtn" onclick="startQuiz()">Start Quiz</button>
+<!-- Progress Bar -->
+<div class="progress-container" style="display: none;">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+<!-- Quiz Questions -->
+<!-- Quiz Questions Section (Initially hidden) -->
+<div id="quizQuestions" style="display: none;">
+<!-- Quiz Questions -->
+<!-- Repeat for each question -->
+<div class="question-page" id="question1">
+<div class="question">
+<label>1. It’s more meaningful to me when …</label><br/>
+<label><input name="q1" onclick="optionSelected(1)" type="radio" value="Receiving Gifts"/>I receive a thoughtful message or note from her for no special reason.</label><br/>
+<label><input name="q1" onclick="optionSelected(1)" type="radio" value="Physical Touch"/>She and I share a warm hug.</label>
+</div>
+<button class="btn" onclick="previousQuestion(0)" style="display:none;">Back</button>
+<button class="btn" disabled="" id="nextBtn1" onclick="nextQuestion(2)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 2 -->
+<div class="question-page" id="question2" style="display: none;">
+<div class="question">
+<label>2. It’s more meaningful to me when …</label><br/>
+<label><input name="q2" onclick="optionSelected(2)" type="radio" value="Quality Time"/>We spend uninterrupted time together.</label><br/>
+<label><input name="q2" onclick="optionSelected(2)" type="radio" value="Acts of Service"/>She does something helpful for me, like running an errand.</label>
+</div>
+<button class="btn" onclick="previousQuestion(1)">Back</button>
+<button class="btn" disabled="" id="nextBtn2" onclick="nextQuestion(3)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 3 -->
+<div class="question-page" id="question3" style="display: none;">
+<div class="question">
+<label>3. It’s more meaningful to me when …</label><br/>
+<label><input name="q3" onclick="optionSelected(3)" type="radio" value="Receiving Gifts"/>I receive a small gift as a token of appreciation.</label><br/>
+<label><input name="q3" onclick="optionSelected(3)" type="radio" value="Quality Time"/>We go on a special outing together.</label>
+</div>
+<button class="btn" onclick="previousQuestion(2)">Back</button>
+<button class="btn" disabled="" id="nextBtn3" onclick="nextQuestion(4)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 4 -->
+<div class="question-page" id="question4" style="display: none;">
+<div class="question">
+<label>4. It’s more meaningful to me when …</label><br/>
+<label><input name="q4" onclick="optionSelected(4)" type="radio" value="Words of Affirmation"/>She compliments me unexpectedly.</label><br/>
+<label><input name="q4" onclick="optionSelected(4)" type="radio" value="Acts of Service"/>She does something helpful for me.</label>
+</div>
+<button class="btn" onclick="previousQuestion(3)">Back</button>
+<button class="btn" disabled="" id="nextBtn4" onclick="nextQuestion(5)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 5 -->
+<div class="question-page" id="question5" style="display: none;">
+<div class="question">
+<label>5. It’s more meaningful to me when …</label><br/>
+<label><input name="q5" onclick="optionSelected(5)" type="radio" value="Physical Touch"/>She holds my hand.</label><br/>
+<label><input name="q5" onclick="optionSelected(5)" type="radio" value="Quality Time"/>We share quality time without distractions.</label>
+</div>
+<button class="btn" onclick="previousQuestion(4)">Back</button>
+<button class="btn" disabled="" id="nextBtn5" onclick="nextQuestion(6)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 6 -->
+<div class="question-page" id="question6" style="display: none;">
+<div class="question">
+<label>6. It’s more meaningful to me when …</label><br/>
+<label><input name="q6" onclick="optionSelected(6)" type="radio" value="Receiving Gifts"/>I receive a surprise gift.</label><br/>
+<label><input name="q6" onclick="optionSelected(6)" type="radio" value="Acts of Service"/>She helps me out with something important.</label>
+</div>
+<button class="btn" onclick="previousQuestion(5)">Back</button>
+<button class="btn" disabled="" id="nextBtn6" onclick="nextQuestion(7)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 7 -->
+<div class="question-page" id="question7" style="display: none;">
+<div class="question">
+<label>7. It’s more meaningful to me when …</label><br/>
+<label><input name="q7" onclick="optionSelected(7)" type="radio" value="Words of Affirmation"/>She says she appreciates me.</label><br/>
+<label><input name="q7" onclick="optionSelected(7)" type="radio" value="Physical Touch"/>She gives me a warm embrace.</label>
+</div>
+<button class="btn" onclick="previousQuestion(6)">Back</button>
+<button class="btn" disabled="" id="nextBtn7" onclick="nextQuestion(8)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 8 -->
+<div class="question-page" id="question8" style="display: none;">
+<div class="question">
+<label>8. It’s more meaningful to me when …</label><br/>
+<label><input name="q8" onclick="optionSelected(8)" type="radio" value="Quality Time"/>We take a walk together.</label><br/>
+<label><input name="q8" onclick="optionSelected(8)" type="radio" value="Receiving Gifts"/>She surprises me with a little gift.</label>
+</div>
+<button class="btn" onclick="previousQuestion(7)">Back</button>
+<button class="btn" disabled="" id="nextBtn8" onclick="nextQuestion(9)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 9 -->
+<div class="question-page" id="question9" style="display: none;">
+<div class="question">
+<label>9. It’s more meaningful to me when …</label><br/>
+<label><input name="q9" onclick="optionSelected(9)" type="radio" value="Acts of Service"/>She runs an errand for me when I’m busy.</label><br/>
+<label><input name="q9" onclick="optionSelected(9)" type="radio" value="Words of Affirmation"/>She tells me how much I mean to her.</label>
+</div>
+<button class="btn" onclick="previousQuestion(8)">Back</button>
+<button class="btn" disabled="" id="nextBtn9" onclick="nextQuestion(10)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 10 -->
+<div class="question-page" id="question10" style="display: none;">
+<div class="question">
+<label>10. It’s more meaningful to me when …</label><br/>
+<label><input name="q10" onclick="optionSelected(10)" type="radio" value="Physical Touch"/>She touches my arm to show she cares.</label><br/>
+<label><input name="q10" onclick="optionSelected(10)" type="radio" value="Acts of Service"/>She helps me out with something I’m stressed about.</label>
+</div>
+<button class="btn" onclick="previousQuestion(9)">Back</button>
+<button class="btn" disabled="" id="nextBtn10" onclick="nextQuestion(11)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 11 -->
+<div class="question-page" id="question11" style="display: none;">
+<div class="question">
+<label>11. It’s more meaningful to me when …</label><br/>
+<label><input name="q11" onclick="optionSelected(11)" type="radio" value="Receiving Gifts"/>I receive a gift just because she thought of me.</label><br/>
+<label><input name="q11" onclick="optionSelected(11)" type="radio" value="Quality Time"/>We do something fun together.</label>
+</div>
+<button class="btn" onclick="previousQuestion(10)">Back</button>
+<button class="btn" disabled="" id="nextBtn11" onclick="nextQuestion(12)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 12 -->
+<div class="question-page" id="question12" style="display: none;">
+<div class="question">
+<label>12. It’s more meaningful to me when …</label><br/>
+<label><input name="q12" onclick="optionSelected(12)" type="radio" value="Words of Affirmation"/>She says she is proud of me.</label><br/>
+<label><input name="q12" onclick="optionSelected(12)" type="radio" value="Physical Touch"/>She holds my hand in public.</label>
+</div>
+<button class="btn" onclick="previousQuestion(11)">Back</button>
+<button class="btn" disabled="" id="nextBtn12" onclick="nextQuestion(13)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 13 -->
+<div class="question-page" id="question13" style="display: none;">
+<div class="question">
+<label>13. It’s more meaningful to me when …</label><br/>
+<label><input name="q13" onclick="optionSelected(13)" type="radio" value="Quality Time"/>We have a cozy evening together.</label><br/>
+<label><input name="q13" onclick="optionSelected(13)" type="radio" value="Receiving Gifts"/>She surprises me with something thoughtful.</label>
+</div>
+<button class="btn" onclick="previousQuestion(12)">Back</button>
+<button class="btn" disabled="" id="nextBtn13" onclick="nextQuestion(14)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 14 -->
+<div class="question-page" id="question14" style="display: none;">
+<div class="question">
+<label>14. It’s more meaningful to me when …</label><br/>
+<label><input name="q14" onclick="optionSelected(14)" type="radio" value="Acts of Service"/>She takes care of something for me.</label><br/>
+<label><input name="q14" onclick="optionSelected(14)" type="radio" value="Words of Affirmation"/>She acknowledges my efforts.</label>
+</div>
+<button class="btn" onclick="previousQuestion(13)">Back</button>
+<button class="btn" disabled="" id="nextBtn14" onclick="nextQuestion(15)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 15 -->
+<div class="question-page" id="question15" style="display: none;">
+<div class="question">
+<label>15. It’s more meaningful to me when …</label><br/>
+<label><input name="q15" onclick="optionSelected(15)" type="radio" value="Physical Touch"/>She gives me a long hug.</label><br/>
+<label><input name="q15" onclick="optionSelected(15)" type="radio" value="Quality Time"/>We go on a date together.</label>
+</div>
+<button class="btn" onclick="previousQuestion(14)">Back</button>
+<button class="btn" disabled="" id="nextBtn15" onclick="nextQuestion(16)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 16 -->
+<div class="question-page" id="question16" style="display: none;">
+<div class="question">
+<label>16. It’s more meaningful to me when …</label><br/>
+<label><input name="q16" onclick="optionSelected(16)" type="radio" value="Receiving Gifts"/>I receive a thoughtful gift.</label><br/>
+<label><input name="q16" onclick="optionSelected(16)" type="radio" value="Acts of Service"/>She takes care of something I was dreading.</label>
+</div>
+<button class="btn" onclick="previousQuestion(15)">Back</button>
+<button class="btn" disabled="" id="nextBtn16" onclick="nextQuestion(17)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 17 -->
+<div class="question-page" id="question17" style="display: none;">
+<div class="question">
+<label>17. It’s more meaningful to me when …</label><br/>
+<label><input name="q17" onclick="optionSelected(17)" type="radio" value="Quality Time"/>We enjoy an activity we both love.</label><br/>
+<label><input name="q17" onclick="optionSelected(17)" type="radio" value="Words of Affirmation"/>She praises something I’ve accomplished.</label>
+</div>
+<button class="btn" onclick="previousQuestion(16)">Back</button>
+<button class="btn" disabled="" id="nextBtn17" onclick="nextQuestion(18)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 18 -->
+<div class="question-page" id="question18" style="display: none;">
+<div class="question">
+<label>18. It’s more meaningful to me when …</label><br/>
+<label><input name="q18" onclick="optionSelected(18)" type="radio" value="Physical Touch"/>She casually touches me as she walks by.</label><br/>
+<label><input name="q18" onclick="optionSelected(18)" type="radio" value="Receiving Gifts"/>She surprises me with a small gift.</label>
+</div>
+<button class="btn" onclick="previousQuestion(17)">Back</button>
+<button class="btn" disabled="" id="nextBtn18" onclick="nextQuestion(19)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 19 -->
+<div class="question-page" id="question19" style="display: none;">
+<div class="question">
+<label>19. It’s more meaningful to me when …</label><br/>
+<label><input name="q19" onclick="optionSelected(19)" type="radio" value="Words of Affirmation"/>She expresses her appreciation for me.</label><br/>
+<label><input name="q19" onclick="optionSelected(19)" type="radio" value="Acts of Service"/>She helps me complete a task.</label>
+</div>
+<button class="btn" onclick="previousQuestion(18)">Back</button>
+<button class="btn" disabled="" id="nextBtn19" onclick="nextQuestion(20)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 20 -->
+<div class="question-page" id="question20" style="display: none;">
+<div class="question">
+<label>20. It’s more meaningful to me when …</label><br/>
+<label><input name="q20" onclick="optionSelected(20)" type="radio" value="Receiving Gifts"/>I receive a small token from her.</label><br/>
+<label><input name="q20" onclick="optionSelected(20)" type="radio" value="Words of Affirmation"/>She gives me a sincere compliment.</label>
+</div>
+<button class="btn" onclick="previousQuestion(19)">Back</button>
+<button class="btn" disabled="" id="nextBtn20" onclick="nextQuestion(21)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 21 -->
+<div class="question-page" id="question21" style="display: none;">
+<div class="question">
+<label>21. It’s more meaningful to me when …</label><br/>
+<label><input name="q21" onclick="optionSelected(21)" type="radio" value="Quality Time"/>We go on a special outing.</label><br/>
+<label><input name="q21" onclick="optionSelected(21)" type="radio" value="Acts of Service"/>She handles something on my to-do list.</label>
+</div>
+<button class="btn" onclick="previousQuestion(20)">Back</button>
+<button class="btn" disabled="" id="nextBtn21" onclick="nextQuestion(22)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 22 -->
+<div class="question-page" id="question22" style="display: none;">
+<div class="question">
+<label>22. It’s more meaningful to me when …</label><br/>
+<label><input name="q22" onclick="optionSelected(22)" type="radio" value="Physical Touch"/>She cuddles up with me.</label><br/>
+<label><input name="q22" onclick="optionSelected(22)" type="radio" value="Words of Affirmation"/>She tells me how much she loves me.</label>
+</div>
+<button class="btn" onclick="previousQuestion(21)">Back</button>
+<button class="btn" disabled="" id="nextBtn22" onclick="nextQuestion(23)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 23 -->
+<div class="question-page" id="question23" style="display: none;">
+<div class="question">
+<label>23. It’s more meaningful to me when …</label><br/>
+<label><input name="q23" onclick="optionSelected(23)" type="radio" value="Receiving Gifts"/>She brings me a thoughtful gift.</label><br/>
+<label><input name="q23" onclick="optionSelected(23)" type="radio" value="Quality Time"/>We take time to catch up without interruptions.</label>
+</div>
+<button class="btn" onclick="previousQuestion(22)">Back</button>
+<button class="btn" disabled="" id="nextBtn23" onclick="nextQuestion(24)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 24 -->
+<div class="question-page" id="question24" style="display: none;">
+<div class="question">
+<label>24. It’s more meaningful to me when …</label><br/>
+<label><input name="q24" onclick="optionSelected(24)" type="radio" value="Words of Affirmation"/>She encourages me during a tough time.</label><br/>
+<label><input name="q24" onclick="optionSelected(24)" type="radio" value="Acts of Service"/>She helps me complete a task.</label>
+</div>
+<button class="btn" onclick="previousQuestion(23)">Back</button>
+<button class="btn" disabled="" id="nextBtn24" onclick="nextQuestion(25)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 25 -->
+<div class="question-page" id="question25" style="display: none;">
+<div class="question">
+<label>25. It’s more meaningful to me when …</label><br/>
+<label><input name="q25" onclick="optionSelected(25)" type="radio" value="Physical Touch"/>She gives me a playful touch.</label><br/>
+<label><input name="q25" onclick="optionSelected(25)" type="radio" value="Quality Time"/>We have a quiet night together.</label>
+</div>
+<button class="btn" onclick="previousQuestion(24)">Back</button>
+<button class="btn" disabled="" id="nextBtn25" onclick="nextQuestion(26)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 26 -->
+<div class="question-page" id="question26" style="display: none;">
+<div class="question">
+<label>26. It’s more meaningful to me when …</label><br/>
+<label><input name="q26" onclick="optionSelected(26)" type="radio" value="Receiving Gifts"/>She surprises me with a meaningful present.</label><br/>
+<label><input name="q26" onclick="optionSelected(26)" type="radio" value="Acts of Service"/>She takes care of a chore for me.</label>
+</div>
+<button class="btn" onclick="previousQuestion(25)">Back</button>
+<button class="btn" disabled="" id="nextBtn26" onclick="nextQuestion(27)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 27 -->
+<div class="question-page" id="question27" style="display: none;">
+<div class="question">
+<label>27. It’s more meaningful to me when …</label><br/>
+<label><input name="q27" onclick="optionSelected(27)" type="radio" value="Words of Affirmation"/>She expresses her pride in me.</label><br/>
+<label><input name="q27" onclick="optionSelected(27)" type="radio" value="Quality Time"/>We make memories together.</label>
+</div>
+<button class="btn" onclick="previousQuestion(26)">Back</button>
+<button class="btn" disabled="" id="nextBtn27" onclick="nextQuestion(28)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 28 -->
+<div class="question-page" id="question28" style="display: none;">
+<div class="question">
+<label>28. It’s more meaningful to me when …</label><br/>
+<label><input name="q28" onclick="optionSelected(28)" type="radio" value="Acts of Service"/>She takes care of something to make my day easier.</label><br/>
+<label><input name="q28" onclick="optionSelected(28)" type="radio" value="Physical Touch"/>She kisses me on the forehead.</label>
+</div>
+<button class="btn" onclick="previousQuestion(27)">Back</button>
+<button class="btn" disabled="" id="nextBtn28" onclick="nextQuestion(29)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 29 -->
+<div class="question-page" id="question29" style="display: none;">
+<div class="question">
+<label>29. It’s more meaningful to me when …</label><br/>
+<label><input name="q29" onclick="optionSelected(29)" type="radio" value="Quality Time"/>We spend time on a shared hobby.</label><br/>
+<label><input name="q29" onclick="optionSelected(29)" type="radio" value="Physical Touch"/>She gives me a comforting touch.</label>
+</div>
+<button class="btn" onclick="previousQuestion(28)">Back</button>
+<button class="btn" disabled="" id="nextBtn29" onclick="nextQuestion(30)" style="background-color: #A9A9A9; color: white;">Next</button>
+</div>
+<!-- Question 30 -->
+<div class="question-page" id="question30" style="display: none;">
+<div class="question">
+<label>30. It’s more meaningful to me when …</label><br/>
+<label><input name="q30" onclick="optionSelected(30)" type="radio" value="Physical Touch"/>We embrace after we’ve been apart for a while.</label><br/>
+<label><input name="q30" onclick="optionSelected(30)" type="radio" value="Words of Affirmation"/>She expresses how much she values me.</label>
+</div>
+<button class="btn" onclick="previousQuestion(29)">Back</button>
+<button class="btn" disabled="" id="nextBtn30" onclick="submitAnswers()" style="background-color: #A9A9A9; color: white;">Submit</button>
+</div>
+<!-- Result Section -->
+<div id="result" style="display: none;">
+<h2>Your Results</h2>
+<div id="resultLanguages"></div>
+<button id="resetBtn" onclick="resetQuiz()" style="display: none;">Restart Quiz</button>
+<button id="downloadBtn" onclick="downloadResult()" style="display: none;">Download Result</button>
+<button id="whatsappBtn" onclick="shareToWhatsapp()" style="display: none;">Share on WhatsApp</button>
+</div>
+<!-- Feedback Section -->
+<div class="feedback-container" id="feedback-section" style="display:none;">
+<h3>I Value Your Feedback. Thank you for completing the quiz! I appreciate your feedback. Do you agree with the results? Your input is valuable! How can I improve my website? Any suggestions are welcome.</h3>
+<form action="https://formspree.io/f/mwpkkrvk" method="POST">
+<label for="feedback" style="display: none;">Feedback</label>
+<textarea id="feedback" name="feedback" placeholder="Enter your feedback here..." rows="5" style="width:100%; padding:10px;"></textarea>
+<button class="btn" type="submit">Submit Feedback</button>
+</form>
+</div>
+</div></section>
+<script src="him-script.js"></script> <!-- Link to your JavaScript file -->
+<footer>
+<p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
+</footer>
+</body>
+</html>
