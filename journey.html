@@ -26,6 +26,8 @@
             border-radius: 8px; /* Optional: rounded corners */
             min-height: 100vh; /* Ensures the section takes up at least the full viewport height */
         }
+
+
     </style>
 </head>
 <body>
@@ -34,12 +36,23 @@
 
 
     <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="love-languages.html">5 Love Languages?</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="journey.html">My Journey</a> 
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="nav-logo">
+    <a href="index.html">
+        <img src="logo.png" alt="Logo" style="height: 40px; width: auto; max-width: 100%;">
+    </a>
+</div>
+
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="love-languages.html">5 Love Languages</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="journey.html">My Journey</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
 
     <section class="container">
@@ -69,7 +82,15 @@
         <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
     </footer>
 
+    <!-- JavaScript for Toggle Menu -->
     <script>
+        // Function to toggle the navigation menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("show");
+        }
+
+        // Matrix Canvas Effect
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -79,7 +100,7 @@
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         const fontSize = 14;
         const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1); // One drop for each column
+        const drops = Array(Math.floor(columns)).fill(1);
 
         function drawMatrix() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Fade effect
@@ -97,7 +118,7 @@
             }
         }
 
-        setInterval(drawMatrix, 33); // Draw every 33ms
+        setInterval(drawMatrix, 33);
     </script>
 
 </body>

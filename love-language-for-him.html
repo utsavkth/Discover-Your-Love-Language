@@ -5,16 +5,25 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Quiz - 5 Love Languages Quiz</title>
-<link href="him-styles.css" rel="stylesheet"/> <!-- Common stylesheet -->
+<link href="him-styles.css" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"><!-- Common stylesheet --> <!-- Common stylesheet -->
 </head>
 <body>
 <!-- Navigation Bar -->
-<nav>
-    <a href="index.html">Home</a>
-    <a href="love-languages.html">5 Love Languages?</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="journey.html">My Journey</a>
+<nav class="navbar">
+    <div class="nav-logo">
+        <a href="index.html">
+            <img src="logo.png" alt="Logo" style="height: 40px; width: auto; max-width: 100%;">
+        </a>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="love-languages.html">5 Love Languages</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="journey.html">My Journey</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
 <section class="container">

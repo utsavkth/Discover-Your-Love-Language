@@ -9,12 +9,20 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="love-languages.html">5 Love Languages?</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="journey.html">My Journey</a>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo" style="height: 40px; width: auto; max-width: 100%;">
+            </a>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="love-languages.html">5 Love Languages</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="journey.html">My Journey</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
     
 
@@ -37,7 +45,6 @@
         <!-- Start Quiz Button -->
 <button class="quiz-button" onclick="openPrompt()">Start the quiz now!</button>
 
-<!-- Prompt Modal -->
 <!-- Prompt Modal -->
 <div id="promptModal" class="modal">
     <div class="modal-content">
@@ -69,72 +76,53 @@
     </div>
 </div>
 
-
     </section>
     <footer>
         <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
     </footer>
 
     <script>
-// Function to open the prompt modal
-function openPrompt() {
-    document.getElementById('promptModal').style.display = 'flex'; // 'flex' centers the modal
-}
-
-// Function to close the modal
-function closeModal() {
-    document.getElementById('promptModal').style.display = 'none';
-}
-
-// Redirect based on user selections
-function redirectToQuiz() {
-    const relationshipStatus = document.getElementById('relationshipStatus').value;
-    const gender = document.getElementById('gender').value;
-
-    // Validate that both fields are selected
-    if (!relationshipStatus || !gender) {
-        alert('Please select both your relationship status and gender.');
-        return;
-    }
-
-    // Redirect based on selections
-    if (relationshipStatus === 'single' || relationshipStatus === 'separated') {
-        window.location.href = 'quiz.html';
-    } else if (relationshipStatus === 'married' && gender === 'male') {
-        window.location.href = 'love-language-for-him.html';
-    } else if (relationshipStatus === 'married' && gender === 'female') {
-        window.location.href = 'love-language-for-her.html';
-    }
-
-    // Close the modal after redirection
-    closeModal();
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-    const modal = document.getElementById('promptModal');
-    if (event.target === modal) {
-        closeModal();
-    }
-};
-
-// Optional: Function to initialize quiz if needed for quiz.html page
-function startQuiz() {
-    document.querySelector('.quiz-instructions').style.display = 'none';
-    document.querySelector('.reminder').style.display = 'none';
-    document.getElementById('quizQuestions').style.display = 'block';
-    document.querySelector('.progress-container').style.display = 'block';
-    document.getElementById('question1').style.display = 'block';
-    updateProgressBar();
-}
-
-// Optional: Function to update progress bar during quiz
-function updateProgressBar() {
-    const currentQuestion = document.querySelectorAll('.question:visible').length;
-    const totalQuestions = document.querySelectorAll('.question').length;
-    const progress = (currentQuestion / totalQuestions) * 100;
-    document.getElementById("progressBar").style.width = progress + "%";
-}
-    </script>
+        // Function to open the prompt modal
+        function openPrompt() {
+            document.getElementById('promptModal').style.display = 'flex'; // 'flex' centers the modal
+        }
+        
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('promptModal').style.display = 'none';
+        }
+        
+        // Redirect based on user selections
+        function redirectToQuiz() {
+            const relationshipStatus = document.getElementById('relationshipStatus').value;
+            const gender = document.getElementById('gender').value;
+        
+            // Validate that both fields are selected
+            if (!relationshipStatus || !gender) {
+                alert('Please select both your relationship status and gender.');
+                return;
+            }
+        
+            // Redirect based on selections
+            if (relationshipStatus === 'single' || relationshipStatus === 'separated') {
+                window.location.href = 'quiz.html';
+            } else if (relationshipStatus === 'married' && gender === 'male') {
+                window.location.href = 'love-language-for-him.html';
+            } else if (relationshipStatus === 'married' && gender === 'female') {
+                window.location.href = 'love-language-for-her.html';
+            }
+        
+            // Close the modal after redirection
+            closeModal();
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('promptModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+        </script>
 </body>
 </html>

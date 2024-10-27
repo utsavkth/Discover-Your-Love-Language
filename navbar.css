@@ -1,0 +1,68 @@
+/* navbar.css */
+
+/* Basic Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #1E3A8A; /* Blue background color */
+    color: #FFFFFF; /* White text color */
+}
+
+.navbar a {
+    color: #FFFFFF; /* White link color */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #93C5FD; /* Light blue on hover */
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Links Container */
+.nav-links {
+    display: flex;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #FFFFFF; /* White color for hamburger icon */
+}
+
+/* Responsive Menu for Smaller Screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1E3A8A; /* Same blue background */
+    }
+
+    .nav-links a {
+        padding: 1em;
+        text-align: center;
+        width: 100%;
+        color: #FFFFFF; /* White link color */
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
