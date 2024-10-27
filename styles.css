@@ -444,45 +444,6 @@ footer p {
     outline: none;
 }
 
-/* Modal Button */
-.modal-btn {
-    background: #5a9bd4;
-    color: #fff;
-    border: none;
-    padding: 12px 0;
-    font-size: 1.05em;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(0, 90, 180, 0.2);
-}
-
-.modal-btn:hover {
-    background-color: #4a8dc4;
-}
-
-/* Close Button Styling */
-.modal-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 18px;
-    line-height: 30px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.modal-close:hover {
-    color: #666;
-}
 
 /* Styling for the Love Languages Icons Section */
 .love-languages-icons {
@@ -523,4 +484,198 @@ footer p {
     font-size: 0.9em;
     color: #555;
     margin: 0;
+}
+
+/* Contact Form Container */
+.contact-form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: #f7f7f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+.contact-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f0f2f5;
+    transition: border-color 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #5a9bd4;
+    outline: none;
+}
+
+/* Submit Button Styling */
+
+
+/* Contact Form Container */
+/* Form Elements */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 8px; /* Reduced padding for smaller height */
+    margin-bottom: 12px; /* Reduced spacing between fields */
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Slightly smaller border radius */
+    font-size: 0.95em; /* Slightly reduced font size */
+    color: #333;
+    background-color: #f0f2f5;
+    transition: border-color 0.3s;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #5a9bd4;
+    outline: none;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    padding: 10px 0; /* Reduced button height */
+    font-size: 1em; /* Adjusted font size */
+}
+
+/* Style for the close button */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Style for the Start Quiz button */
+.modal-btn {
+    background-color: #2137af; /* Green */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Flexbox styling for modal alignment */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    max-width: 500px;
+    text-align: center;
+}
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #e0f7fa; /* Pastel blue background */
+    color: #660066; /* Deep purple text color */
+}
+
+.navbar a {
+    color: #660066; /* Deep purple link color */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #993399; /* Lighter purple on hover */
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Links Container */
+.nav-links {
+    display: flex;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #660066; /* Deep purple color for hamburger icon */
+}
+
+/* Responsive Menu for Smaller Screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #e0f7fa; /* Match the pastel blue background */
+        z-index: 2; /* Ensure it stays above other elements */
+    }
+
+    .nav-links a {
+        padding: 1em;
+        text-align: center;
+        width: 100%;
+        color: #660066; /* Deep purple link color */
+    }
+
+    .nav-links a:hover {
+        color: #993399; /* Lighter purple on hover for mobile view as well */
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }

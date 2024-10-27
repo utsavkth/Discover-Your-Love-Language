@@ -71,26 +71,7 @@ ul li {
     color: #333333;
 }
 
-/* Navigation */
-nav {
-    background-color: #34495e; /* Darker, neutral color for nav */
-    padding: 20px; /* Increased padding for a more spacious look */
-    text-align: center;
-}
 
-nav a {
-    color: #ecf0f1; /* Light color for better contrast */
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px; /* Increased padding for better touch targets */
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-nav a:hover {
-    background-color: #455a64; /* Subtle hover effect */
-}
 
 /* Modernized Button Styles */
 .btn {
@@ -401,4 +382,71 @@ footer p {
 }
 .question input[type="radio"] {
     margin-right: 8px; /* Adds some spacing between the radio and the text */
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #1E3A8A; /* Blue background */
+    color: #FFFFFF; /* White text color */
+}
+
+.navbar a {
+    color: #FFFFFF; /* White link color */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #93C5FD; /* Light blue on hover */
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Links Container */
+.nav-links {
+    display: flex;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+/* Responsive Menu for Smaller Screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1E3A8A;
+    }
+
+    .nav-links a {
+        padding: 1em;
+        text-align: center;
+        width: 100%;
+        color: #FFFFFF;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }

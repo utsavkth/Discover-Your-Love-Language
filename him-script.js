@@ -230,3 +230,9 @@ function startQuiz() {
     document.getElementById('question1').style.display = 'block';
     updateProgressBar();  // Initialize progress bar
 }
+
+// Function to toggle the navigation menu
+function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("show");
+}
