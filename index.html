@@ -83,6 +83,11 @@
     </footer>
 
     <script>
+        // Function to toggle the navigation menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("show");
+        }
         // Function to open the prompt modal
         function openPrompt() {
             document.getElementById('promptModal').style.display = 'flex'; // 'flex' centers the modal
