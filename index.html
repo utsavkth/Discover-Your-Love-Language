@@ -38,6 +38,7 @@
 <button class="quiz-button" onclick="openPrompt()">Start the quiz now!</button>
 
 <!-- Prompt Modal -->
+<!-- Prompt Modal -->
 <div id="promptModal" class="modal">
     <div class="modal-content">
         <!-- Close Button -->
@@ -53,6 +54,7 @@
                 <option value="">Select...</option>
                 <option value="single">Single</option>
                 <option value="married">Married/Committed</option>
+                <option value="separated">Separated/Divorced</option>
             </select>
 
             <label>Gender:</label>
@@ -66,6 +68,7 @@
         </form>
     </div>
 </div>
+
 
     </section>
     <footer>
@@ -95,7 +98,7 @@ function redirectToQuiz() {
     }
 
     // Redirect based on selections
-    if (relationshipStatus === 'single') {
+    if (relationshipStatus === 'single' || relationshipStatus === 'separated') {
         window.location.href = 'quiz.html';
     } else if (relationshipStatus === 'married' && gender === 'male') {
         window.location.href = 'love-language-for-him.html';
