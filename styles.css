@@ -444,6 +444,25 @@ footer p {
     outline: none;
 }
 
+/* Style for input fields in the modal */
+.modal-content input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input[type="text"]:focus {
+    border-color: #5a9bd4; /* Accent color to match focus styling */
+    outline: none;
+}
+
+
 
 /* Styling for the Love Languages Icons Section */
 .love-languages-icons {
@@ -494,6 +513,7 @@ footer p {
     background: #f7f7f9;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding doesn’t increase width */
 }
 
 /* Form Elements */
@@ -507,8 +527,8 @@ footer p {
 .form-input,
 .form-textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1em;

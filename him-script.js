@@ -1,5 +1,6 @@
 let currentQuestion = 1;
 const totalQuestions = 30;
+const userName = localStorage.getItem("userName") || "User";  // Retrieve userName or use "User" as fallback
 
 // Function to show the next question
 function nextQuestion(questionNumber) {
@@ -67,7 +68,8 @@ function submitAnswers() {
     }
 
     // Hide FAQ section after all responses are collected
-    document.getElementById("faqSection").style.display = "none";
+    const faqSection = document.getElementById("faqSection");
+    if (faqSection) faqSection.style.display = "none";
 
     // Count the frequency of each love language
     const languageCount = {};
@@ -82,41 +84,51 @@ function submitAnswers() {
     const primaryLanguages = sortedLanguages.slice(0, 2).map(lang => lang[0]);
     const secondaryLanguages = sortedLanguages.slice(2, 4).map(lang => lang[0]);
 
-    // Display the results for primary love languages
+    // Display the results for primary love languages with user's name
     const resultDiv = document.getElementById("result");
     const resultLanguagesDiv = document.getElementById("resultLanguages");
-    resultLanguagesDiv.innerHTML = `<p><b style="color: #333333;">Your Primary Love Languages:</b></p>`;
 
-    primaryLanguages.forEach(language => {
-        resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
-        resultLanguagesDiv.innerHTML += getLanguageDescription(language);
-        resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
-    });
+    if (resultLanguagesDiv) {
+        resultLanguagesDiv.innerHTML = `<p><b>Hello, ${userName}!</b> Based on your answers, your primary love languages are:</p>`;
+        primaryLanguages.forEach(language => {
+            resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
+            resultLanguagesDiv.innerHTML += getLanguageDescription(language);
+            resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
+        });
 
-    // Display the results for secondary love languages
-    resultLanguagesDiv.innerHTML += `<p><b style="color: #333333;">Your Secondary Love Languages:</b></p>`;
-    secondaryLanguages.forEach(language => {
-        resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
-        resultLanguagesDiv.innerHTML += getLanguageDescription(language);
-        resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
-    });
+        // Display the results for secondary love languages
+        resultLanguagesDiv.innerHTML += `<p><b>Your Secondary Love Languages:</b></p>`;
+        secondaryLanguages.forEach(language => {
+            resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
+            resultLanguagesDiv.innerHTML += getLanguageDescription(language);
+            resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
+        });
+    }
 
     // Show the result section and reset button
-    resultDiv.style.display = "block";
-    document.getElementById("resetBtn").style.display = "block";
-    document.getElementById("downloadBtn").style.display = "block";  // Show download button
-    document.getElementById("whatsappBtn").style.display = "block";  // Show WhatsApp button
-
-    // Show the feedback section after results
-    document.querySelector(".feedback-container").style.display = "block";
+    if (resultDiv) resultDiv.style.display = "block";
+    const resetBtn = document.getElementById("resetBtn");
+    if (resetBtn) resetBtn.style.display = "block";
+    const downloadBtn = document.getElementById("downloadBtn");
+    if (downloadBtn) downloadBtn.style.display = "block";
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    if (whatsappBtn) whatsappBtn.style.display = "block";
+    
+    const feedbackContainer = document.querySelector(".feedback-container");
+    if (feedbackContainer) feedbackContainer.style.display = "block";
 
     // Hide all questions and progress bar
     for (let i = 1; i <= totalQuestions; i++) {
-        document.getElementById(`question${i}`).style.display = 'none';
+        const questionElem = document.getElementById(`question${i}`);
+        if (questionElem) questionElem.style.display = 'none';
     }
-    document.querySelector(".progress-container").style.display = 'none';
-    document.getElementById("submitBtn").style.display = 'none';
+    const progressContainer = document.querySelector(".progress-container");
+    if (progressContainer) progressContainer.style.display = 'none';
+
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) submitBtn.style.display = 'none';
 }
+
 
 // Function to download the result as an image
 function downloadResult() {

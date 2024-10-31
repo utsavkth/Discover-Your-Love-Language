@@ -60,12 +60,15 @@
         <!-- Close Button -->
         <span class="modal-close" onclick="closeModal()">×</span>
 
-        <h2>Uncover Your Unique Love Language! 💖</h2>
-        <p>I'm excited to take you on a journey of self-discovery. Just a few quick questions will help me tailor this quiz to you personally.</p>
-        <p>And rest assured—your answers are private and just for you! 🤫</p>
+        <h2>Welcome to Your Personalized Quiz!</h2>
+        <p>To give you the most accurate results, please let me know a bit about you. This quick selection helps me tailor the quiz experience to match your relationship status and preferences.</p>
+        <p>Don’t worry—your relationship status stays completely private, even from me! 🤫 It’s our little secret.</p>
 
         <form id="userForm">
-            <label>Relationship Status:</label>
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" placeholder="Enter your name" required>
+
+            <label for="relationshipStatus">Relationship Status:</label>
             <select id="relationshipStatus" required>
                 <option value="">Select...</option>
                 <option value="single">Single</option>
@@ -73,7 +76,7 @@
                 <option value="separated">Separated/Divorced</option>
             </select>
 
-            <label>Gender:</label>
+            <label for="gender">Gender:</label>
             <select id="gender" required>
                 <option value="">Select...</option>
                 <option value="male">Male</option>
@@ -92,44 +95,33 @@
     </footer>
 
     <script>
-        // Function to toggle the navigation menu
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            navLinks.classList.toggle("show");
-        }
-        // Function to open the prompt modal
-        function openPrompt() {
-            document.getElementById('promptModal').style.display = 'flex'; // 'flex' centers the modal
-        }
-        
-        // Function to close the modal
-        function closeModal() {
-            document.getElementById('promptModal').style.display = 'none';
-        }
-        
-        // Redirect based on user selections
         function redirectToQuiz() {
-            const relationshipStatus = document.getElementById('relationshipStatus').value;
-            const gender = document.getElementById('gender').value;
+            const userNameInput = document.getElementById("userName").value.trim();
+            const relationshipStatus = document.getElementById("relationshipStatus").value;
+            const gender = document.getElementById("gender").value;
         
-            // Validate that both fields are selected
-            if (!relationshipStatus || !gender) {
-                alert('Please select both your relationship status and gender.');
+            // Validate that all fields are filled
+            if (!userNameInput || !relationshipStatus || !gender) {
+                alert("Please enter your name, relationship status, and gender before starting the quiz.");
                 return;
             }
         
+            // Store the user's name in localStorage
+            localStorage.setItem("userName", userNameInput);
+        
             // Redirect based on selections
-            if (relationshipStatus === 'single' || relationshipStatus === 'separated') {
-                window.location.href = 'quiz.html';
-            } else if (relationshipStatus === 'married' && gender === 'male') {
-                window.location.href = 'love-language-for-him.html';
-            } else if (relationshipStatus === 'married' && gender === 'female') {
-                window.location.href = 'love-language-for-her.html';
+            if (relationshipStatus === "single" || relationshipStatus === "separated") {
+                window.location.href = "quiz.html";
+            } else if (relationshipStatus === "married" && gender === "male") {
+                window.location.href = "love-language-for-him.html";
+            } else if (relationshipStatus === "married" && gender === "female") {
+                window.location.href = "love-language-for-her.html";
             }
         
             // Close the modal after redirection
             closeModal();
         }
+        
         
         // Close modal when clicking outside of it
         window.onclick = function(event) {

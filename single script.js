@@ -1,5 +1,7 @@
 let currentQuestion = 1;
 const totalQuestions = 30;
+const userName = localStorage.getItem("userName") || "User";  // Retrieve userName or use "User" as fallback
+
 
 // Function to show the next question
 function nextQuestion(questionNumber) {
@@ -45,10 +47,24 @@ function updateProgressBar() {
     document.getElementById("progressBar").style.width = progress + "%";
 }
 
-// Submit answers and show results
+// Function to start the quiz and capture the user's name
+function startQuiz() {
+    userName = document.getElementById("userName").value;  // Get name input
+
+    if (!userName) {
+        alert("Please enter your name before starting the quiz.");
+        return;
+    }
+
+    document.getElementById("startQuizModal").style.display = 'none';  // Hide modal
+    document.getElementById('quizQuestions').style.display = 'block';
+    updateProgressBar();
+}
+
+// Submit answers and show personalized results
 function submitAnswers() {
     const responses = {};
-    
+
     // Collect responses from the quiz
     for (let i = 1; i <= totalQuestions; i++) {
         const radios = document.getElementsByName(`q${i}`);
@@ -82,23 +98,23 @@ function submitAnswers() {
     const primaryLanguages = sortedLanguages.slice(0, 2).map(lang => lang[0]);
     const secondaryLanguages = sortedLanguages.slice(2, 4).map(lang => lang[0]);
 
-    // Display the results for primary love languages
+    // Display the personalized results
     const resultDiv = document.getElementById("result");
     const resultLanguagesDiv = document.getElementById("resultLanguages");
-    resultLanguagesDiv.innerHTML = `<p><b style="color: #333333;">Your Primary Love Languages:</b></p>`;
 
+    resultLanguagesDiv.innerHTML = `<p><b>Hello, ${userName}!</b> Based on your answers, your primary love languages are:</p>`;
     primaryLanguages.forEach(language => {
         resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
         resultLanguagesDiv.innerHTML += getLanguageDescription(language);
-        resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
+        resultLanguagesDiv.innerHTML += getLanguageImage(language);
     });
 
     // Display the results for secondary love languages
-    resultLanguagesDiv.innerHTML += `<p><b style="color: #333333;">Your Secondary Love Languages:</b></p>`;
+    resultLanguagesDiv.innerHTML += `<p><b>Your Secondary Love Languages:</b></p>`;
     secondaryLanguages.forEach(language => {
         resultLanguagesDiv.innerHTML += `<h3>${language}</h3>`;
         resultLanguagesDiv.innerHTML += getLanguageDescription(language);
-        resultLanguagesDiv.innerHTML += getLanguageImage(language);  // Add image based on love language
+        resultLanguagesDiv.innerHTML += getLanguageImage(language);
     });
 
     // Show the result section and reset button
@@ -129,11 +145,11 @@ function downloadResult() {
     });
 }
 
-// Function to share the result via WhatsApp
+// Function to share the personalized result via WhatsApp
 function shareToWhatsapp() {
-    const resultText = document.getElementById('resultLanguages').innerText;
+    const resultText = `${userName}'s Love Language results: \n` + document.getElementById('resultLanguages').innerText;
     const quizLink = "Check your love language here: https://utsavkth.github.io/love-languages-quiz/";
-    const whatsappUrl = `https://api.whatsapp.com/send?text=Check out my Love Language result: ${encodeURIComponent(resultText)}%0A%0A${encodeURIComponent(quizLink)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(resultText)}%0A%0A${encodeURIComponent(quizLink)}`;
     window.open(whatsappUrl, '_blank');
 }
 
