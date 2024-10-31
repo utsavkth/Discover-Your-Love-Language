@@ -6,14 +6,14 @@
     <title>Home - 5 Love Languages Quiz</title>
     <link rel="stylesheet" href="styles.css"> <!-- Common stylesheet -->
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-50F0VFXRYX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50F0VFXRYX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-50F0VFXRYX');
-</script>
+      gtag('config', 'G-50F0VFXRYX');
+    </script>
 </head>
 <body>
 
@@ -34,7 +34,6 @@
         <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
     
-
     <section class="container">
         <h1>Welcome to the 5 Love Languages Quiz</h1>
         <p>Discover your primary love language to improve how you connect with others. Whether you're focusing on a romantic relationship, a friendship, or a family bond, understanding your love language can unlock deeper communication and fulfillment.</p>
@@ -52,43 +51,42 @@
         <p><b>Ready to find out your love language?</b></p>
         
         <!-- Start Quiz Button -->
-<button class="quiz-button" onclick="openPrompt()">Start the quiz now!</button>
+        <button class="quiz-button" onclick="openPrompt()">Start the quiz now!</button>
 
-<!-- Prompt Modal -->
-<div id="promptModal" class="modal">
-    <div class="modal-content">
-        <!-- Close Button -->
-        <span class="modal-close" onclick="closeModal()">×</span>
+        <!-- Prompt Modal -->
+        <div id="promptModal" class="modal">
+            <div class="modal-content">
+                <!-- Close Button -->
+                <span class="modal-close" onclick="closeModal()">×</span>
 
-        <h2>Welcome to Your Personalized Quiz!</h2>
-        <p>To give you the most accurate results, please let me know a bit about you. This quick selection helps me tailor the quiz experience to match your relationship status and preferences.</p>
-        <p>Don’t worry—your relationship status stays completely private, even from me! 🤫 It’s our little secret.</p>
-
-        <form id="userForm">
-            <label for="userName">Your Name:</label>
-            <input type="text" id="userName" placeholder="Enter your name" required>
-
-            <label for="relationshipStatus">Relationship Status:</label>
-            <select id="relationshipStatus" required>
-                <option value="">Select...</option>
-                <option value="single">Single</option>
-                <option value="married">Married/Committed</option>
-                <option value="separated">Separated/Divorced</option>
-            </select>
-
-            <label for="gender">Gender:</label>
-            <select id="gender" required>
-                <option value="">Select...</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-
-            <button type="button" class="modal-btn" onclick="redirectToQuiz()">Start Quiz</button>
-        </form>
-    </div>
-</div>
+                <h2 id="welcomeMessage">Welcome to Your Personalized Quiz Adventure!</h2>
+<p>Hey there! I just need a tiny bit of info before we dive in. This will help me make the quiz experience as personal as possible, matching your relationship status and preferences. 🕵️‍♂️💌</p>
+<p>And don’t worry—your relationship status is totally private! 🤫 It’s just between you and the quiz. Are you ready to get started and discover your love language? Let’s go!</p>
 
 
+                <form id="userForm">
+                    <label for="userName">Your Name:</label>
+                    <input type="text" id="userName" placeholder="Enter your name" required>
+
+                    <label for="relationshipStatus">Relationship Status:</label>
+                    <select id="relationshipStatus" required>
+                        <option value="">Select...</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married/Committed</option>
+                        <option value="separated">Separated/Divorced</option>
+                    </select>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" required>
+                        <option value="">Select...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    <button type="button" class="modal-btn" onclick="redirectToQuiz()">Start Quiz</button>
+                </form>
+            </div>
+        </div>
     </section>
     <footer>
         <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
@@ -122,6 +120,15 @@
             closeModal();
         }
         
+        // Function to open the prompt modal
+        function openPrompt() {
+            document.getElementById('promptModal').style.display = 'flex'; // 'flex' centers the modal
+        }
+
+        // Close modal function
+        function closeModal() {
+            document.getElementById('promptModal').style.display = 'none';
+        }
         
         // Close modal when clicking outside of it
         window.onclick = function(event) {
@@ -130,6 +137,6 @@
                 closeModal();
             }
         };
-        </script>
+    </script>
 </body>
 </html>
