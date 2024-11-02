@@ -93,6 +93,11 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("show");
+        }
+        
         function redirectToQuiz() {
             const userNameInput = document.getElementById("userName").value.trim();
             const relationshipStatus = document.getElementById("relationshipStatus").value;
