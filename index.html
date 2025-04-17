@@ -1,147 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - 5 Love Languages Quiz</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Common stylesheet -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50F0VFXRYX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-50F0VFXRYX');
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Your Attachment Style</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
 </head>
 <body>
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+  </script>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="logo.png" alt="Logo" style="height: 40px; width: auto; max-width: 100%;">
-            </a>
-        </div>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="love-languages.html">5 Love Languages</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="journey.html">My Journey</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="Attachment Style Logo" class="logo" />
+      <h1 class="site-title">Discover Your Attachment Style</h1>
+    </div>
+    <div class="header-actions">
+      <button id="darkModeToggle" class="toggle-button" aria-label="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+    <nav class="nav" id="navLinks" aria-label="Main Navigation">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="theory.html" class="nav-link">What is Attachment Theory?</a>
+      <a href="about.html" class="nav-link">Why I Created This</a>
+      <a href="privacy.html" class="nav-link">Privacy</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
-    
-    <section class="container">
-        <h1>Welcome to the 5 Love Languages Quiz</h1>
-        <p>Discover your primary love language to improve how you connect with others. Whether you're focusing on a romantic relationship, a friendship, or a family bond, understanding your love language can unlock deeper communication and fulfillment.</p>
-    
-        <h2>Why Should You Take This Quiz?</h2>
-        <p>This quiz is more than just a fun activity—it’s a valuable tool for self-discovery. By understanding your love language, you’ll be able to communicate your emotional needs better and connect with others in ways that truly resonate.</p>
-    
-        <h2>What You’ll Learn</h2>
-        <p>Through this quiz, you’ll learn how you prefer to express love and how you best receive it. You’ll gain insights into your relationships and find new ways to bring more harmony and understanding into your interactions.</p>
-    
-        <div class="image-placeholder">
-            <img src="home page.png" alt="Love Connection">
-        </div>
-    
-        <p><b>Ready to find out your love language?</b></p>
-        
-        <!-- Start Quiz Button -->
-        <button class="quiz-button" onclick="openPrompt()">Start the quiz now!</button>
+  </header>
 
-        <!-- Prompt Modal -->
-        <div id="promptModal" class="modal">
-            <div class="modal-content">
-                <!-- Close Button -->
-                <span class="modal-close" onclick="closeModal()">×</span>
+  <main class="main">
+    <section class="hero fade-in homepage-hero">
+      <h2 class="hero-heading">🧭 Understand Your Emotional Blueprint</h2>
+      <p class="hero-subtext">
+        Discover how you connect, communicate, and navigate emotional bonds.<br />
+        This quiz reveals your attachment style — offering insights to help you build more secure, fulfilling relationships.
+      </p>
 
-                <h2 id="welcomeMessage">Welcome to Your Personalized Quiz Adventure!</h2>
-<p>Hey there! I just need a tiny bit of info before we dive in. This will help me make the quiz experience as personal as possible, matching your relationship status and preferences. 🕵️‍♂️💌</p>
-<p>And don’t worry—your relationship status is totally private! 🤫 It’s just between you and the quiz. Are you ready to get started and discover your love language? Let’s go!</p>
+      <blockquote class="hero-quote">
+        “Understanding your own and your partner’s attachment style can transform your relationship.
+        In a world where separation often feels easier than connection, learning how we attach helps us see
+        that love isn’t about finding someone new — it’s about showing up, understanding, and growing with the one we’re with.”
+      </blockquote>
+
+      <a href="quiz.html" class="cta-button" aria-label="Start the quiz now">Start the Quiz</a>
+      <p class="quiz-length-hint">🕒 Takes 5–7 minutes. 43 questions. 3 short sections. Built for clarity, not clickbait.</p>
+
+        <!-- Insert this inside <main class="main">, after the hero section -->
+    <section class="story-preview fade-in">
+      <h3 class="section-title">📖 The Personal Journey Behind This Project</h3>
+      <p class="story-text">
+        This site wasn’t made for trends or clicks — it was made from lived experience. If you’ve ever wondered why you love the way you do, or why certain patterns keep repeating, you’re not alone. I built this as a map — to find clarity, healing, and connection.
+      </p>
+      <a href="about.html" class="cta-button secondary">Read My Story →</a>
+</section>
 
 
-                <form id="userForm">
-                    <label for="userName">Your Name:</label>
-                    <input type="text" id="userName" placeholder="Enter your name" required>
-
-                    <label for="relationshipStatus">Relationship Status:</label>
-                    <select id="relationshipStatus" required>
-                        <option value="">Select...</option>
-                        <option value="single">Single</option>
-                        <option value="married">Married/Committed</option>
-                        <option value="separated">Separated/Divorced</option>
-                    </select>
-
-                    <label for="gender">Gender:</label>
-                    <select id="gender" required>
-                        <option value="">Select...</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-
-                    <button type="button" class="modal-btn" onclick="redirectToQuiz()">Start Quiz</button>
-                </form>
-            </div>
-        </div>
     </section>
-    <footer>
-        <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
-    </footer>
+  </main>
 
-    <script>
-        function toggleMenu() {
-    const navLinks = document.getElementById("navLinks");
-    navLinks.classList.toggle("show");
-        }
-        
-        function redirectToQuiz() {
-            const userNameInput = document.getElementById("userName").value.trim();
-            const relationshipStatus = document.getElementById("relationshipStatus").value;
-            const gender = document.getElementById("gender").value;
-        
-            // Validate that all fields are filled
-            if (!userNameInput || !relationshipStatus || !gender) {
-                alert("Please enter your name, relationship status, and gender before starting the quiz.");
-                return;
-            }
-        
-            // Store the user's name in localStorage
-            localStorage.setItem("userName", userNameInput);
-        
-            // Redirect based on selections
-            if (relationshipStatus === "single" || relationshipStatus === "separated") {
-                window.location.href = "quiz.html";
-            } else if (relationshipStatus === "married" && gender === "male") {
-                window.location.href = "love-language-for-him.html";
-            } else if (relationshipStatus === "married" && gender === "female") {
-                window.location.href = "love-language-for-her.html";
-            }
-        
-            // Close the modal after redirection
-            closeModal();
-        }
-        
-        // Function to open the prompt modal
-        function openPrompt() {
-            document.getElementById('promptModal').style.display = 'flex'; // 'flex' centers the modal
-        }
+  <footer class="footer">
+    © 2025 Discover Your Attachment Style. Built by Utsav Khatiwada for seekers of emotional clarity.  
+Inspired by the book *Attached* — because love deserves to make sense.
 
-        // Close modal function
-        function closeModal() {
-            document.getElementById('promptModal').style.display = 'none';
-        }
-        
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('promptModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        };
-    </script>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.textContent = document.body.classList.contains("dark") ? "🌞" : "🌙";
+
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const theme = document.body.classList.contains("dark") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      toggle.textContent = theme === "dark" ? "🌞" : "🌙";
+    });
+
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+  </script>
 </body>
 </html>

@@ -1,24 +1,88 @@
-# Discover Your Love Language
+# 🧠💙 Discover Your Attachment Style
 
-## Overview
-"Discover Your Love Language" is a web-based quiz designed to help individuals identify their primary and secondary love languages based on Dr. Gary Chapman's framework. By understanding one's love language, users can enhance their communication and relationships with others.
+This project is a modern, self-discovery web app that helps users understand their **attachment style** in relationships. It blends psychology, clean design, and interactivity — built using HTML, CSS, and JavaScript.
 
-## Motivation
-The inspiration for creating this website came from my own experiences with relationships. I often struggled to connect with colleagues, friends, family, and romantic partners (not that I had many! 😅). Discovering Dr. Gary Chapman's book, *The 5 Love Languages*, changed my perspective on love and communication. This revelation motivated me to build a resource that would help others discover their love languages and improve their relationships in a similar way.
+## 🌐 Live Demo
+👉 [View Live Quiz](https://utsavkth.github.io/Discover-Your-Attachment-Style) ← *(Now live!)*
 
-## Features
-- **Interactive Quiz**: A series of questions that guide users through discovering their love languages.
-- **Informational Sections**: Background information on love languages and Dr. Gary Chapman's work.
-- **Personal Story**: An insight into my journey with love languages and recommendations for further reading.
-- **Additional Resources**: Suggested books, movies, and documentaries to deepen understanding of love languages.
+---
 
-## Technologies Used
-- **HTML**: For structuring the content.
-- **CSS**: For styling and visual appeal.
-- **JavaScript**: For quiz functionality and interactivity.
-- **GitHub Pages**: For hosting the website.
+## 🗺️ Site Flow Diagram
 
-## Getting Started
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/utsavkth/Discover-Your-Love-Language.git
+```text
+                              +-----------------------+
+                              |       Homepage        |
+                              | "Discover Your        |
+                              | Attachment Style"     |
+                              +-----------------------+
+                                         |
+                -------------------------------------------------
+                |                                               |
+   [Learn More → "What is Attachment Theory?"]         [Start Quiz → Quiz Intro Form]
+                                                           |
+                                           +-------------------------------+
+                                           | Ask Name / Gender / Status    |
+                                           +-------------------------------+
+                                                           |
+                                           +-------------------------------+
+                                           | Begin Quiz (Paginated Qs)    |
+                                           +-------------------------------+
+                                                           |
+                                           +-------------------------------+
+                                           |     Show Result w/ Chart      |
+                                           | + Style Description           |
+                                           | + Icon                        |
+                                           | + PDF Export / Restart Btn    |
+                                           +-------------------------------+
+                                                           |
+                -----------------------------------------------------------------
+                |                          |                         |          |
+     [Why & How I Created This]     [Privacy Policy]         [Contact]    [Back Home]
+
+
+## 🛠️ Tech Stack
+- HTML5 + CSS3
+- JavaScript (Vanilla)
+- Chart.js
+- html2canvas + jsPDF (for exporting results)
+- Responsive & accessible UI
+
+## 📁 Folder Structure
+
+```text
+attachment-style-quiz/
+│
+├── index.html
+├── quiz.html
+├── result.html
+├── about.html
+├── contact.html
+├── theory.html
+├── privacy.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   ├── quiz.js
+│   ├── result.js
+│   ├── darkmode.js
+│   └── utils.js
+│
+├── assets/
+│   ├── logo.png
+│   ├── icons/
+│   └── fonts/
+│
+└── README.md
+```
+
+## ✨ Features
+- 43 engaging questions based on Attachment Theory
+- Personalized results with metaphor & explanation
+- PDF export, dark mode, progress tracking
+- Fully responsive for mobile + desktop
+
+---
+
+Built with passion by Utsav 🙌

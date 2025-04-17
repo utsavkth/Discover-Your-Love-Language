@@ -1,0 +1,638 @@
+/* === Root Variables === */
+:root {
+    --bg-light: #ffffff;
+    --text-light: #1f2937;
+    --bg-dark: #1f2937;
+    --text-dark: #f9fafb;
+  
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent: #f87171;
+  
+    --header-bg-light: #f3f4f6;
+    --header-bg-dark: #111827;
+  
+    --border-light: #e5e7eb;
+    --border-dark: #374151;
+  
+    --transition-fast: 0.3s ease;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* === Base Reset === */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-main);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+  
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+  
+  body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  
+  /* === Header === */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--header-bg-light);
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+    z-index: 20;
+  }
+  
+  body.dark .header {
+    background-color: var(--header-bg-dark);
+    border-color: var(--border-dark);
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .site-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  /* === Navigation (Always Hamburger) === */
+  .nav {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    background-color: var(--header-bg-light);
+    border: 1px solid var(--border-light);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  body.dark .nav {
+    background-color: var(--bg-dark);
+    border-color: var(--border-dark);
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+  
+  .nav a:hover {
+    color: var(--primary);
+  }
+  
+  .hamburger {
+    display: inline-block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  /* === Dark Mode Toggle === */
+  .toggle-button {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+  
+  /* === Hero Section === */
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom right, #e0f2fe, #f0fdf4);
+    border-radius: 0.75rem;
+    margin: 2rem;
+  }
+  
+  body.dark .hero {
+    background: linear-gradient(to bottom right, #0f172a, #1f2937);
+  }
+  
+  .hero-heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    animation: fadeIn 0.6s ease-in;
+  }
+  
+  .hero-subtext {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  
+  /* === Call-to-Action Button === */
+  .cta-button {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+  }
+  
+  .cta-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  
+  .secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+  
+  /* === Footer === */
+  .footer {
+    text-align: center;
+    font-size: 0.875rem;
+    padding: 1.5rem 1rem;
+    color: #6b7280;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-light);
+  }
+  
+  body.dark .footer {
+    color: #9ca3af;
+    border-color: var(--border-dark);
+  }
+  
+  /* === Utilities === */
+  .hidden {
+    display: none !important;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.6s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/* === Quiz Section Styling === */
+.quiz-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--text-light);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+body.dark .section-header p {
+  color: var(--text-dark);
+}
+
+/* Quiz question cards */
+.question {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+body.dark .question {
+  background: rgba(31, 41, 55, 0.85);
+  border: 1px solid var(--border-dark);
+}
+
+.question p {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Styled radio buttons */
+.question label {
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.question input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+/* Quiz Nav Buttons */
+.quiz-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+body.dark .nav-button {
+  background-color: #2563eb;
+}
+
+/* === User Form Styling === */
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .user-form {
+  background: rgba(31, 41, 55, 0.9);
+  border: 1px solid var(--border-dark);
+}
+
+.user-form label {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+body.dark .user-form label {
+  color: var(--text-light);
+}
+
+.user-form input,
+.user-form select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #111;
+}
+
+body.dark .user-form input,
+body.dark .user-form select {
+  background: #1f2937;
+  color: #eee;
+  border-color: #444;
+}
+
+.user-form .cta-button {
+  align-self: center;
+  width: 100%;
+}
+
+/* === Styling for the links in Theory.html ===*/
+.attachment-links {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  
+  .attachment-links .subheading {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .attachment-card-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .attachment-card {
+    display: inline-block;
+    background-color: var(--card-bg, #f9f9f9);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    min-width: 220px;
+    text-align: center;
+  }
+  
+  .attachment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  body.dark .attachment-card {
+    background-color: #1f2937;
+    color: #eee;
+  }
+  
+  .attachment-card.anxious { color: #f87171; }
+  .attachment-card.secure { color: #34d399; }
+  .attachment-card.avoidant { color: #60a5fa; }
+  
+/* Bullet List Dot */
+
+.centered-list {
+    max-width: 700px;
+    margin: 1.5rem auto;
+    padding: 0 1.5rem;
+    text-align: left;
+  }
+  
+  .clean-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .clean-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+  
+  
+  body.dark .clean-list li::before {
+    color: #93c5fd;
+  }
+  
+/* == attachment Style Images == */
+.attachment-illustration {
+    text-align: center;
+    margin: 2rem auto;
+  }
+  
+  .attachment-illustration img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  /* === Homepage Hero Section Upgrade === */
+.homepage-hero {
+    max-width: 750px;
+    margin: 3rem auto;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out both;
+  }
+  
+  body.dark .homepage-hero {
+    background: rgba(31, 41, 55, 0.95);
+    border: 1px solid var(--border-dark);
+  }
+  
+  .homepage-hero h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-light);
+  }
+  
+  body.dark .homepage-hero h2 {
+    color: var(--text-dark);
+  }
+  
+  .hero-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+  }
+  
+  body.dark .hero-lead {
+    color: #d1d5db;
+  }
+  
+  .hero-quote {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    border-left: 4px solid var(--primary);
+    padding-left: 1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  body.dark .hero-quote {
+    color: #cbd5e1;
+    border-color: #60a5fa;
+  }
+
+/* why section */
+.movie-quotes {
+    max-width: 700px;
+    margin: 2rem auto 0;
+    text-align: center;
+  }
+  
+  .movie-quote {
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  body.dark .movie-quote {
+    color: #ccc;
+  }
+  
+  .quote-source {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    color: #888;
+  }
+  
+  .signature {
+    font-style: italic;
+    text-align: right;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+ 
+  /* === Story Preview Section === */
+.story-preview {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .story-preview {
+  background-color: rgba(31, 41, 55, 0.95);
+  border: 1px solid var(--border-dark);
+}
+
+.story-preview .section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.story-preview .story-text {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+body.dark .story-preview .story-text {
+  color: #ccc;
+}
+
+/* === Smooth hover animations for buttons === */
+.cta-button,
+.nav-button {
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cta-button:hover,
+.nav-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.encouragement {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--primary);
+  background-color: rgba(240, 249, 255, 0.7);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+body.dark .encouragement {
+  background-color: rgba(30, 58, 138, 0.2);
+  color: #cbd5e1;
+  border-color: #60a5fa;
+}
+
+.quiz-length-hint {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #6b7280;
+  text-align: center;
+}
+body.dark .quiz-length-hint {
+  color: #9ca3af;
+}
+
+.section-progress {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+body.dark .section-progress {
+  color: #9ca3af;
+}
+
+.stepper {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.step.active {
+  transform: scale(1.2);
+  text-shadow: 0 0 4px var(--primary);
+}
+
+.step.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

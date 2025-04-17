@@ -1,90 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - 5 Love Languages Quiz</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Common stylesheet -->
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-50F0VFXRYX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-50F0VFXRYX');
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why I Created This – Attachment Style Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <style>
+    .cta-button-inline {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .cta-button-inline:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+  </script>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="logo.png" alt="Logo" style="height: 40px; width: auto; max-width: 100%;">
-            </a>
-        </div>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="love-languages.html">5 Love Languages</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="journey.html">My Journey</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="Attachment Style Logo" class="logo" />
+      <h1 class="site-title">Why I Created This</h1>
+    </div>
+    <div class="header-actions">
+      <button id="darkModeToggle" class="toggle-button" aria-label="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+    <nav class="nav" id="navLinks">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="theory.html" class="nav-link">What is Attachment Theory?</a>
+      <a href="about.html" class="nav-link active">Why I Created This</a>
+      <a href="privacy.html" class="nav-link">Privacy</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
-    
+  </header>
 
-    <section class="container">
-        <h1>About These Quizzes</h1>
-        <p>Inspired by Dr. Gary Chapman's transformative book, <i>The 5 Love Languages</i>, this website offers tailored quizzes to help you discover your love language. Choose from three personalized quizzes based on your relationship status and preferences, each designed to help you build stronger, more fulfilling connections.</p>
-    
-        <h2>Choosing the Right Quiz for You</h2>
-        <p>Each quiz is customized to help you find your primary love language in a way that’s most relevant to your life situation:</p>
-        <ul>
-            <li><strong>General Quiz for Singles:</strong> Perfect for individuals who want to learn more about their love language independently. This quiz explores your preferences in friendships, family, and personal growth.</li>
-            <li><strong>Couples Quiz – For Him:</strong> Tailored for men in relationships, this quiz identifies the love language that resonates most, helping you connect more deeply with your partner.</li>
-            <li><strong>Couples Quiz – For Her:</strong> Designed for women in relationships, this quiz reveals how you best receive love, enabling more meaningful connections with your significant other.</li>
-        </ul>
-    
-        <h2>Why Understanding Love Languages Matters</h2>
-        <p>Knowing your love language is a powerful tool for improving communication in all kinds of relationships. It helps you express your needs more clearly and understand the needs of others, whether it's with a partner, friend, or family member.</p>
-    
-        <h2>How These Quizzes Work</h2>
-        <p>Each quiz guides you through a series of questions that explore different ways people express and receive love. Based on your responses, you’ll discover your primary and secondary love languages, which can help deepen your understanding and communication in your relationships.</p>
-    
-        <h2>About Dr. Gary Chapman</h2>
-        <p>Dr. Gary Chapman is a renowned relationship counselor and the author of the New York Times bestseller <i>The 5 Love Languages</i>. His work is based on decades of counseling experience, and his book has helped people around the world understand the importance of emotional communication in relationships.</p>
+  <main class="main">
+    <section class="hero fade-in">
+      <h2 class="hero-heading">The Personal Journey Behind This Project</h2>
 
-        <h2>Resources that can help deepen your understanding of love languages and emotional communication:</h2>
-        <ul>
-            <li><strong>Books:</strong> 
-                <ul>
-                    <li><i>The 5 Love Languages: The Secret to Love That Lasts</i> by Gary Chapman</li>
-                    <li><i>Attached: The New Science of Adult Attachment</i> by Amir Levine and Rachel Heller</li>
-                    <li><i>Hold Me Tight: Seven Conversations for a Lifetime of Love</i> by Dr. Sue Johnson</li>
-                </ul>
-            </li>
-            <li><strong>Movies/Documentaries:</strong> 
-                <ul>
-                    <li><i>Happy</i> - A documentary exploring the concept of happiness and relationships.</li>
-                    <li><i>The Science of Love</i> - A documentary that examines the complexities of love and attachment.</li>
-                </ul>
-            </li>
-        </ul>
+      <p>
+        If you're here, thank you. Whether you clicked out of curiosity or I personally sent you this, I built this space for people like us — the ones trying to make sense of their own patterns.
+      </p>
+
+      <p>
+        This website wasn’t built for fame, for likes, or to go viral. It was built for me — and anyone else like me. People trying to understand why they feel the way they do, why some connections feel electric while others feel like silence, why they care deeply in a world that’s emotionally shallow.
+      </p>
+
+      <p>
+        We live in the Matrix. TikTok. Instagram reels. Porn. Dopamine’s everywhere. Fast content. Fast love. Fast goodbyes.<br>
+        But attention? <strong>Real attention?</strong> That’s rare.<br>
+        People don’t take the time to <em>know</em> anyone anymore. They swipe, get a hit of connection, and ghost when things get real.
+      </p>
+
+      <p>
+        When your phone breaks, you try to fix it. You don’t throw it away unless it’s truly outdated or useless.<br>
+        So why don’t we treat relationships with the same patience?
+      </p>
+
+      <p>
+        This project is my response to that mindset.
+        It took me 27 years to begin understanding myself — and I realized something: <strong>You can’t understand someone in a week, a month, or even a year.</strong> Understanding takes patience. Time. Repetition. Care. That’s what love is.
+      </p>
+
+      <p>
+        I spent nights reflecting. Alone. Looking in the mirror and replaying my life — decision by decision. In that solitude, I discovered a book called <em>Attached</em>.
+        That book gave me language for things I’d always felt but couldn’t name. I realized my reactions weren’t random — they were patterns. My attachment style explained a lot.
+      </p>
+
+      <p>
+        I used to think only women created drama when they didn’t get attention in relationships. Turns out — that’s not a gender thing. That’s a <strong>human response to emotional disconnection</strong>. That’s protest behavior. Or sometimes… it’s deactivation.
+      </p>
+
+      <p>
+        I’m still learning. Some people don’t get it — they think once you’re married or committed, none of this theory matters. But I disagree. Because theory turns into action. And action turns into habits. And habits build (or break) relationships.
+      </p>
+
+      <p>
+        <strong>Realization is everything.</strong> Loving someone isn’t just about chemistry or compatibility. It’s a decision. A discipline. A daily act of seeing, hearing, understanding — and staying.
+      </p>
+
+      <blockquote class="hero-quote">
+        “My wife used to fart in her sleep.”<br />
+        <span class="quote-source">— <em>Good Will Hunting</em></span><br />
+        Might sound silly, but it’s one of the most profound moments in the film. Sean wasn’t talking about romance — he was talking about <em>real</em>. Real love lives in the mundane. In the quirks. In the little things you grow to adore.
+      </blockquote>
+
+      <blockquote class="hero-quote">
+        “You’re just a kid. You don’t have the faintest idea what you’re talking about.”<br />
+        <span class="quote-source">— <em>Good Will Hunting</em></span><br />
+        It’s a reminder that reading about love isn’t the same as living it. You can highlight every page in every book — but you won’t understand it until it’s your heart on the line.
+      </blockquote>
+
+      <blockquote class="hero-quote">
+        “The past is just a story we tell ourselves.”<br />
+        <span class="quote-source">— <em>Her (2013)</em></span><br />
+        And maybe that’s the beauty of healing. You don’t erase the past — but you rewrite how it shapes you.
+      </blockquote>
+
+      <hr style="margin: 3rem 0;" />
+      <h3>🔁 Where This Journey Started</h3>
+
+      <p>
+        Before building this site, I launched another project:<br>
+        <a href="https://utsavkth.github.io/Discover-Your-Love-Language/" target="_blank" class="cta-button-inline">🔗 Discover Your Love Language</a>
+      </p>
+
+      <p>
+        That was my first attempt at turning self-reflection into something interactive and shareable.
+        It started with a Google Form. This one? It started with a PDF.
+      </p>
+
+      <p>
+        At first, I’d send people a static file and have them tally up their attachment scores manually. But I knew that wasn’t enough.
+        Not because the info wasn’t good — but because the delivery didn’t plant the seed deeply enough.
+        I’ve realized something: not everyone will read the books that changed my life.
+        But if I turn those ideas into an experience?
+        If I can get someone to pause for 5 minutes and see themselves a little clearer — I’ve done my job.
+      </p>
+
+      <blockquote class="hero-quote" style="font-style: italic;">
+        Maybe we are in the Matrix of the subconscious.<br />
+        Maybe Tyler Durden lives there.<br />
+        Maybe I’m just Leonardo DiCaprio from Inception — trying to plant one thought in your head.
+      </blockquote>
+
+      <p>
+        This quiz isn't just answers — it’s a red pill.<br />
+        Not a fix. Not a diagnosis.<br />
+        But maybe the first shift in how you view your patterns, your needs, and your wiring.
+      </p>
+
+      <p>
+        So if you're still reading this, and you haven’t taken the quiz yet...<br>
+        <a href="quiz.html" class="cta-button-inline">❤️ Here’s the link</a>
+      </p>
+
+      <p class="signature">— Utsav</p>
     </section>
+  </main>
 
-    <footer>
-        <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
-    </footer>
+  <footer class="footer">
+    © 2025 Discover Your Attachment Style. Built by Utsav Khatiwada for seekers of emotional clarity.<br>
+    Inspired by the book <em>Attached</em> — because love deserves to make sense.
+  </footer>
 
-    <script>
-        // Function to toggle the navigation menu
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            navLinks.classList.toggle("show");
-        }
-    </script>
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.textContent = document.body.classList.contains("dark") ? "🌞" : "🌙";
 
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const theme = document.body.classList.contains("dark") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      toggle.textContent = theme === "dark" ? "🌞" : "🌙";
+    });
+
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+  </script>
 </body>
 </html>

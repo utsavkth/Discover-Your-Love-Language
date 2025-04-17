@@ -1,585 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz - 5 Love Languages Quiz</title>
-    <link rel="stylesheet" href="single-styles.css"> 
-    <link rel="stylesheet" href="styles.css"><!-- Common stylesheet -->
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-50F0VFXRYX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-50F0VFXRYX');
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attachment Style Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-logo">
-            <a href="index.html">
-                <img src="logo.png" alt="Logo" style="height: 40px; width: auto; max-width: 100%;">
-            </a>
-        </div>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="love-languages.html">5 Love Languages</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="journey.html">My Journey</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <script>
+        // Apply saved theme on load
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark");
+        }
+      </script>
+      
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="Attachment Style Logo" class="logo" />
+      <h1 class="site-title">Attachment Style Quiz</h1>
+    </div>
+    <div class="header-actions">
+      <button id="darkModeToggle" class="toggle-button">🌙</button>
+      <button class="hamburger" id="hamburger">☰</button>
+    </div>
+    <nav class="nav" id="navLinks">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="theory.html" class="nav-link">What is Attachment Theory?</a>
+      <a href="about.html" class="nav-link">Why I Created This</a>
+      <a href="privacy.html" class="nav-link">Privacy</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
-    
-    
+  </header>
 
-    <section class="container">
-        <h1 class="quiz-title">Discover Your Love Language</h1>
-        <p class="quiz-subtitle">Complete the quiz to uncover how you connect with others!</p>
-        <!-- Introductory Image for Singles Quiz -->
-        <img src="single-quiz-intro-image.png" alt="Self-discovery quiz" class="quiz-banner" />
+  <main class="main">
+    <section id="introForm" class="hero fade-in">
+      <h2 class="hero-heading">Before We Start...</h2>
+      <p class="hero-subtext">Please fill in a few quick details so we can personalize your results.</p>
 
-        <!-- Quiz Instructions --> 
-        <section class="quiz-instructions">
-            <h2>Instructions</h2>
-            <p>As you take this quiz, consider the following:</p>
-            <ul>
-                <li>Think about the people in your life who are important to you—friends, family, or partners.</li>
-                <li>Choose the option that resonates most with how you feel loved and appreciated by them.</li>
-                <li>If both options seem appealing, select the one that feels more significant or impactful in your relationships.</li>
-                <li>There are no right or wrong answers; the goal is to understand your preferences better!</li>
-            </ul>
-            <p>Enjoy the quiz!</p>
-        </section>
+      <form id="userForm" class="user-form" aria-label="User Info Form">
+        <label for="username">
+          Name:
+          <input type="text" id="username" name="username" required />
+        </label>
 
-        <!-- Reminder About Results -->
-        <section class="reminder">
-            <h3>Your Privacy Matters</h3>
-            <p>Your quiz results are not shared with anyone unless you choose to do so. The website doesn't save any responses; it is simply to help you understand your love language and relationships.</p>
-            <p>At the end of the quiz, you will be able to download your results or share them with your loved ones to enhance your relationship.</p>
-        </section>
+        <label for="gender">
+          Gender:
+          <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Non-Binary</option>
+            <option>Prefer not to say</option>
+          </select>
+        </label>
 
-        <!-- Frequently Asked Questions -->
-        <div id="faqSection">
-            <h3>Frequently Asked Questions</h3>
-        <ul>
-            <li><b>How do I choose between the two options for each question?</b> 
-                Select the option that resonates most with you in the context of your current relationships.</li>
-            <li><b>What if both options feel relevant to me?</b> 
-                It’s common to relate to multiple love languages. Choose the one that feels more significant or impactful for you right now.</li>
-            <li><b>Why do some of the options seem to repeat?</b> 
-                I intentionally designed the quiz to repeat similar options in different contexts. This helps to ensure more accurate and consistent results, allowing you to discover your primary love language more effectively.</li>
-            <li><b>How long will the quiz take?</b> 
-                The quiz typically takes about 5-10 minutes, but take your time to reflect on each question.</li>
-            <li><b>Will my responses be kept confidential?</b> 
-                Yes, your answers are not saved or shared with anyone unless you choose to share your results. This quiz is for your personal insight.</li>
-        </ul>
-        </div>
-        
+        <label for="relationship">
+          Relationship Status:
+          <select id="relationship" name="relationship" required>
+            <option value="">Select</option>
+            <option>Single</option>
+            <option>In a relationship</option>
+            <option>Married</option>
+            <option>It’s complicated</option>
+          </select>
+        </label>
 
-        <!-- Start Quiz Button -->
-        <button class="btn" id="startQuizBtn" onclick="startQuiz()">Start Quiz</button>
-
-        <!-- Progress Bar -->
-        <div class="progress-container" style="display: none;">
-            <div id="progressBar" class="progress-bar"></div>
-        </div>
-        
-        
-        <!-- Quiz Questions -->
-
-       <!-- Quiz Questions Section (Initially hidden) -->
-       <div id="quizQuestions" style="display: none;">
-        <!-- Quiz Questions -->
-        <!-- Repeat for each question -->
-        <div class="question-page" id="question1">
-            <div class="question">
-                <label><b>1. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q1" value="Receiving Gifts" onclick="optionSelected(1)"> I feel appreciated when I receive a thoughtful gift.
-                </label><br>
-                <label>
-                    <input type="radio" name="q1" value="Quality Time" onclick="optionSelected(1)"> Having someone's full attention during our time together means the world to me.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(0)" style="display:none;">Back</button>
-            <button class="btn" id="nextBtn1" onclick="nextQuestion(2)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 2 -->
-        <div class="question-page" id="question2" style="display: none;">
-            <div class="question">
-                <label><b>2. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q2" value="Words of Affirmation" onclick="optionSelected(2)"> Hearing someone express appreciation makes me feel valued.
-                </label><br>
-                <label>
-                    <input type="radio" name="q2" value="Acts of Service" onclick="optionSelected(2)"> It means a lot to me when someone lends a hand without me asking.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(1)">Back</button>
-            <button class="btn" id="nextBtn2" onclick="nextQuestion(3)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 3 -->
-        <div class="question-page" id="question3" style="display: none;">
-            <div class="question">
-                <label><b>3. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q3" value="Acts of Service" onclick="optionSelected(3)"> I feel loved when someone steps in to help with things that matter to me.
-                </label><br>
-                <label>
-                    <input type="radio" name="q3" value="Quality Time" onclick="optionSelected(3)"> Spending uninterrupted time together makes me feel closer.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(2)">Back</button>
-            <button class="btn" id="nextBtn3" onclick="nextQuestion(4)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 4 -->
-        <div class="question-page" id="question4" style="display: none;">
-            <div class="question">
-                <label><b>4. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q4" value="Physical Touch" onclick="optionSelected(4)"> A warm hug or gentle touch makes me feel connected.
-                </label><br>
-                <label>
-                    <input type="radio" name="q4" value="Words of Affirmation" onclick="optionSelected(4)"> Hearing encouraging words lifts my spirit and makes me feel appreciated.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(3)">Back</button>
-            <button class="btn" id="nextBtn4" onclick="nextQuestion(5)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 5 -->
-        <div class="question-page" id="question5" style="display: none;">
-            <div class="question">
-                <label><b>5. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q5" value="Receiving Gifts" onclick="optionSelected(5)"> Receiving a surprise gift feels like someone truly thought of me.
-                </label><br>
-                <label>
-                    <input type="radio" name="q5" value="Acts of Service" onclick="optionSelected(5)"> When someone helps with tasks, it shows they care about my well-being.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(4)">Back</button>
-            <button class="btn" id="nextBtn5" onclick="nextQuestion(6)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 6 -->
-        <div class="question-page" id="question6" style="display: none;">
-            <div class="question">
-                <label><b>6. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q6" value="Quality Time" onclick="optionSelected(6)"> Sharing time with someone who focuses on me makes me feel cherished.
-                </label><br>
-                <label>
-                    <input type="radio" name="q6" value="Physical Touch" onclick="optionSelected(6)"> I feel cared for when someone shows affection through touch.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(5)">Back</button>
-            <button class="btn" id="nextBtn6" onclick="nextQuestion(7)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-            <!-- Question 7 -->
-    <div class="question-page" id="question7" style="display: none;">
-        <div class="question">
-            <label><b>7. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q7" value="Acts of Service" onclick="optionSelected(7)"> When someone helps me without being asked, I feel their support.
-            </label><br>
-            <label>
-                <input type="radio" name="q7" value="Receiving Gifts" onclick="optionSelected(7)"> A gift that reflects my interests makes me feel understood.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(6)">Back</button>
-        <button class="btn" id="nextBtn7" onclick="nextQuestion(8)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 8 -->
-    <div class="question-page" id="question8" style="display: none;">
-        <div class="question">
-            <label><b>8. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q8" value="Quality Time" onclick="optionSelected(8)"> Having a heartfelt conversation brings me closer to someone.
-            </label><br>
-            <label>
-                <input type="radio" name="q8" value="Words of Affirmation" onclick="optionSelected(8)"> Hearing a sincere compliment brightens my day.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(7)">Back</button>
-        <button class="btn" id="nextBtn8" onclick="nextQuestion(9)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 9 -->
-    <div class="question-page" id="question9" style="display: none;">
-        <div class="question">
-            <label><b>9. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q9" value="Physical Touch" onclick="optionSelected(9)"> I feel loved when I receive a comforting hug or touch.
-            </label><br>
-            <label>
-                <input type="radio" name="q9" value="Acts of Service" onclick="optionSelected(9)"> I appreciate it deeply when someone helps with my daily tasks.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(8)">Back</button>
-        <button class="btn" id="nextBtn9" onclick="nextQuestion(10)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 10 -->
-    <div class="question-page" id="question10" style="display: none;">
-        <div class="question">
-            <label><b>10. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q10" value="Receiving Gifts" onclick="optionSelected(10)"> A meaningful gift makes me feel special and loved.
-            </label><br>
-            <label>
-                <input type="radio" name="q10" value="Quality Time" onclick="optionSelected(10)"> Quality moments spent together are what make me feel valued.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(9)">Back</button>
-        <button class="btn" id="nextBtn10" onclick="nextQuestion(11)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 11 -->
-    <div class="question-page" id="question11" style="display: none;">
-        <div class="question">
-            <label><b>11. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q11" value="Words of Affirmation" onclick="optionSelected(11)"> Words of kindness and support make me feel secure in a relationship.
-            </label><br>
-            <label>
-                <input type="radio" name="q11" value="Physical Touch" onclick="optionSelected(11)"> A gentle touch or holding hands helps me feel connected.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(10)">Back</button>
-        <button class="btn" id="nextBtn11" onclick="nextQuestion(12)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 12 -->
-    <div class="question-page" id="question12" style="display: none;">
-        <div class="question">
-            <label><b>12. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q12" value="Quality Time" onclick="optionSelected(12)"> Time shared with someone without distractions makes me feel valued.
-            </label><br>
-            <label>
-                <input type="radio" name="q12" value="Acts of Service" onclick="optionSelected(12)"> When someone takes care of tasks for me, I feel their support.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(11)">Back</button>
-        <button class="btn" id="nextBtn12" onclick="nextQuestion(13)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 13 -->
-    <div class="question-page" id="question13" style="display: none;">
-        <div class="question">
-            <label><b>13. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q13" value="Receiving Gifts" onclick="optionSelected(13)"> Receiving a meaningful gift on a special occasion makes me feel appreciated.
-            </label><br>
-            <label>
-                <input type="radio" name="q13" value="Physical Touch" onclick="optionSelected(13)"> Physical closeness, like a hug, brings me comfort and joy.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(12)">Back</button>
-        <button class="btn" id="nextBtn13" onclick="nextQuestion(14)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-    <!-- Question 14 -->
-    <div class="question-page" id="question14" style="display: none;">
-        <div class="question">
-            <label><b>14. Select the statement that best describes you.</b></label><br>
-            <label>
-                <input type="radio" name="q14" value="Quality Time" onclick="optionSelected(14)"> Having a deep conversation with someone makes me feel connected.
-            </label><br>
-            <label>
-                <input type="radio" name="q14" value="Words of Affirmation" onclick="optionSelected(14)"> I feel loved when someone compliments me sincerely.
-            </label>
-        </div>
-        <button class="btn" onclick="previousQuestion(13)">Back</button>
-        <button class="btn" id="nextBtn14" onclick="nextQuestion(15)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-    </div>
-
-        <!-- Question 15 -->
-        <div class="question-page" id="question15" style="display: none;">
-            <div class="question">
-                <label><b>15. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q15" value="Words of Affirmation" onclick="optionSelected(15)"> Kind words, especially compliments, make me feel valued.
-                </label><br>
-                <label>
-                    <input type="radio" name="q15" value="Receiving Gifts" onclick="optionSelected(15)"> A thoughtful gift makes me feel like they know me well.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(14)">Back</button>
-            <button class="btn" id="nextBtn15" onclick="nextQuestion(16)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 16 -->
-        <div class="question-page" id="question16" style="display: none;">
-            <div class="question">
-                <label><b>16. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q16" value="Acts of Service" onclick="optionSelected(16)"> When someone takes on a task for me, I feel cared for.
-                </label><br>
-                <label>
-                    <input type="radio" name="q16" value="Quality Time" onclick="optionSelected(16)"> Doing activities together creates a bond I cherish.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(15)">Back</button>
-            <button class="btn" id="nextBtn16" onclick="nextQuestion(17)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 17 -->
-        <div class="question-page" id="question17" style="display: none;">
-            <div class="question">
-                <label><b>17. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q17" value="Physical Touch" onclick="optionSelected(17)"> I feel closest to someone when we share physical closeness.
-                </label><br>
-                <label>
-                    <input type="radio" name="q17" value="Receiving Gifts" onclick="optionSelected(17)"> Receiving a gift that’s meaningful shows me someone cares.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(16)">Back</button>
-            <button class="btn" id="nextBtn17" onclick="nextQuestion(18)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 18 -->
-        <div class="question-page" id="question18" style="display: none;">
-            <div class="question">
-                <label><b>18. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q18" value="Acts of Service" onclick="optionSelected(18)"> Help with daily tasks shows me they pay attention to my needs.
-                </label><br>
-                <label>
-                    <input type="radio" name="q18" value="Quality Time" onclick="optionSelected(18)"> Time spent together in meaningful activities brings us closer.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(17)">Back</button>
-            <button class="btn" id="nextBtn18" onclick="nextQuestion(19)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 19 -->
-        <div class="question-page" id="question19" style="display: none;">
-            <div class="question">
-                <label><b>19. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q19" value="Receiving Gifts" onclick="optionSelected(19)"> A gift that reflects who I am makes me feel understood.
-                </label><br>
-                <label>
-                    <input type="radio" name="q19" value="Physical Touch" onclick="optionSelected(19)"> Physical affection like a gentle touch reassures me.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(18)">Back</button>
-            <button class="btn" id="nextBtn19" onclick="nextQuestion(20)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 20 -->
-        <div class="question-page" id="question20" style="display: none;">
-            <div class="question">
-                <label><b>20. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q20" value="Quality Time" onclick="optionSelected(20)"> Spending time with someone, free from distractions, makes me feel valued.
-                </label><br>
-                <label>
-                    <input type="radio" name="q20" value="Words of Affirmation" onclick="optionSelected(20)"> Hearing words that express appreciation lifts my spirit.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(19)">Back</button>
-            <button class="btn" id="nextBtn20" onclick="nextQuestion(21)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 21 -->
-        <div class="question-page" id="question21" style="display: none;">
-            <div class="question">
-                <label><b>21. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q21" value="Acts of Service" onclick="optionSelected(21)"> I appreciate when someone takes care of my needs.
-                </label><br>
-                <label>
-                    <input type="radio" name="q21" value="Receiving Gifts" onclick="optionSelected(21)"> I feel special when someone gives me a gift just because.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(20)">Back</button>
-            <button class="btn" id="nextBtn21" onclick="nextQuestion(22)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 22 -->
-        <div class="question-page" id="question22" style="display: none;">
-            <div class="question">
-                <label><b>22. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q22" value="Words of Affirmation" onclick="optionSelected(22)"> Expressing appreciation through words makes me feel seen.
-                </label><br>
-                <label>
-                    <input type="radio" name="q22" value="Quality Time" onclick="optionSelected(22)"> Spending time with someone who listens attentively means a lot.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(21)">Back</button>
-            <button class="btn" id="nextBtn22" onclick="nextQuestion(23)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 23 -->
-        <div class="question-page" id="question23" style="display: none;">
-            <div class="question">
-                <label><b>23. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q23" value="Receiving Gifts" onclick="optionSelected(23)"> I feel valued when I receive thoughtful gifts.
-                </label><br>
-                <label>
-                    <input type="radio" name="q23" value="Physical Touch" onclick="optionSelected(23)"> I feel loved when I have physical affection.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(22)">Back</button>
-            <button class="btn" id="nextBtn23" onclick="nextQuestion(24)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 24 -->
-        <div class="question-page" id="question24" style="display: none;">
-            <div class="question">
-                <label><b>24. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q24" value="Acts of Service" onclick="optionSelected(24)"> I appreciate it when someone takes the time to help me.
-                </label><br>
-                <label>
-                    <input type="radio" name="q24" value="Quality Time" onclick="optionSelected(24)"> I feel closest to someone when we can talk openly.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(23)">Back</button>
-            <button class="btn" id="nextBtn24" onclick="nextQuestion(25)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 25 -->
-        <div class="question-page" id="question25" style="display: none;">
-            <div class="question">
-                <label><b>25. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q25" value="Receiving Gifts" onclick="optionSelected(25)"> I feel loved when I receive a gift that shows someone knows me well.
-                </label><br>
-                <label>
-                    <input type="radio" name="q25" value="Acts of Service" onclick="optionSelected(25)"> I appreciate it when someone helps me with my tasks.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(24)">Back</button>
-            <button class="btn" id="nextBtn25" onclick="nextQuestion(26)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 26 -->
-        <div class="question-page" id="question26" style="display: none;">
-            <div class="question">
-                <label><b>26. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q26" value="Words of Affirmation" onclick="optionSelected(26)"> I feel appreciated when someone tells me I did a good job.
-                </label><br>
-                <label>
-                    <input type="radio" name="q26" value="Physical Touch" onclick="optionSelected(26)"> I feel loved when I receive a warm embrace.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(25)">Back</button>
-            <button class="btn" id="nextBtn26" onclick="nextQuestion(27)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 27 -->
-        <div class="question-page" id="question27" style="display: none;">
-            <div class="question">
-                <label><b>27. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q27" value="Quality Time" onclick="optionSelected(27)"> I feel valued when someone takes the time to listen to me.
-                </label><br>
-                <label>
-                    <input type="radio" name="q27" value="Acts of Service" onclick="optionSelected(27)"> I feel cared for when someone helps me out.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(26)">Back</button>
-            <button class="btn" id="nextBtn27" onclick="nextQuestion(28)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 28 -->
-        <div class="question-page" id="question28" style="display: none;">
-            <div class="question">
-                <label><b>28. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q28" value="Receiving Gifts" onclick="optionSelected(28)"> I feel loved when I receive a gift on a special occasion.
-                </label><br>
-                <label>
-                    <input type="radio" name="q28" value="Quality Time" onclick="optionSelected(28)"> I appreciate when we can spend time together.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(27)">Back</button>
-            <button class="btn" id="nextBtn28" onclick="nextQuestion(29)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 29 -->
-        <div class="question-page" id="question29" style="display: none;">
-            <div class="question">
-                <label><b>29. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q29" value="Physical Touch" onclick="optionSelected(29)"> I feel closest to someone when we share a hug or kiss.
-                </label><br>
-                <label>
-                    <input type="radio" name="q29" value="Words of Affirmation" onclick="optionSelected(29)"> I feel appreciated when someone says something kind to me.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(28)">Back</button>
-            <button class="btn" id="nextBtn29" onclick="nextQuestion(30)" style="background-color: #A9A9A9; color: white;" disabled>Next</button>
-        </div>
-    
-        <!-- Question 30 -->
-        <div class="question-page" id="question30" style="display: none;">
-            <div class="question">
-                <label><b>30. Select the statement that best describes you.</b></label><br>
-                <label>
-                    <input type="radio" name="q30" value="Acts of Service" onclick="optionSelected(30)"> I feel loved when someone does something kind for me.
-                </label><br>
-                <label>
-                    <input type="radio" name="q30" value="Receiving Gifts" onclick="optionSelected(30)"> I feel appreciated when I receive a thoughtful gift.
-                </label>
-            </div>
-            <button class="btn" onclick="previousQuestion(29)">Back</button>
-            <button class="btn" id="nextBtn30" onclick="submitAnswers()" style="background-color: #A9A9A9; color: white;" disabled>Submit</button>
-        </div>
-    </div>
-    
-
-    
-
-
-        
-
-        <!-- Result Section -->
-        <!-- Result Section -->
-        <div id="result" style="display: none;">
-            <h2>Your Results</h2>
-            <div id="resultLanguages"></div>
-        
-            <div class="result-buttons">
-                <button class="btn visible" id="resetBtn" onclick="resetQuiz()">Restart Quiz</button>
-                <button class="btn visible" id="downloadBtn" onclick="downloadResult()">Download Result</button>
-                <button class="btn visible" id="whatsappBtn" onclick="shareToWhatsapp()">Share on WhatsApp</button>
-            </div>
-        </div>
-
-<!-- Feedback Section -->
-<div class="feedback-container" id="feedback-section" style="display:none;">
-    <h3>I Value Your Feedback. Thank you for completing the quiz! I appreciate your feedback. Do you agree with the results? Your input is valuable! How can I improve my website? Any suggestions are welcome.</h3>
-    <form action="https://formspree.io/f/mwpkkrvk" method="POST">
-        <label for="feedback" style="display: none;">Feedback</label>
-        <textarea id="feedback" name="feedback" placeholder="Enter your feedback here..." rows="5" style="width:100%; padding:10px;"></textarea>
-        <button class="btn" type="submit">Submit Feedback</button>
-    </form>
-</div>
+        <button type="submit" class="cta-button">Start Quiz</button>
+      </form>
     </section>
 
-    <script src="single script.js"></script> <!-- Link to your JavaScript file -->
-    <footer>
-        <p>Created by Utsav Khatiwada | Inspired by <i>The 5 Love Languages</i> by Gary Chapman</p>
-    </footer>
+    <section id="quizSection" class="quiz-section hidden fade-in">
+      <div id="sectionHeader" class="section-header"></div>
+      <div id="quizContainer"></div>
 
+      <div class="quiz-controls">
+        <button id="prevBtn" class="nav-button">Previous</button>
+        <button id="nextBtn" class="nav-button">Next</button>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2025 Discover Your Attachment Style. Built by Utsav Khatiwada for seekers of emotional clarity.  
+Inspired by the book *Attached* — because love deserves to make sense.
+
+  </footer>
+
+  <script src="quiz.js"></script>
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.textContent = document.body.classList.contains("dark") ? "🌞" : "🌙";
+
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const theme = document.body.classList.contains("dark") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+      toggle.textContent = theme === "dark" ? "🌞" : "🌙";
+    });
+
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+  </script>
 </body>
 </html>
